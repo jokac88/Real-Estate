@@ -41,58 +41,6 @@
 	<!-- Order now end -->
 	<!-- App start -->
 	<div id="app">
-		<!-- topBar start -->
-		<div id="topBar" class="d-md-none">
-			<div id="language" class="dropdown-topBar d-md-none">
-				<button class="dropbtn-topBar">
-					<span class="flag-icon flag-icon-rs"></span>
-				</button>
-				<div class="dropdown-content-topBar">
-					<a href="javascript:void(0)">
-						<span class="flag-icon flag-icon-rs"></span>Serbian
-					</a>
-					<a href="javascript:void(0)">
-						<span class="flag-icon flag-icon-gb"></span>English
-					</a>
-					<a href="javascript:void(0)">
-						<span class="flag-icon flag-icon-fr"></span>Français
-					</a>
-					<a href="javascript:void(0)">
-						<span class="flag-icon flag-icon-de"></span>Deutch
-					</a>
-				</div>
-			</div>
-			<button class="hamburger hamburger--elastic-r" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-				<span class="hamburger-box">
-					<span class="hamburger-inner"></span>
-				</span>
-			</button>
-			<ul class="topBar">
-				<li><a href="#app">Home</a></li>
-				<li><a href="#scheduling">Scheduling</a></li>
-				<li><a href="#products">Products</a></li>
-				<li><a href="#promotions">Promotions</a></li>
-				<li><a href="#gallery">Gallery</a></li>
-				<li class="social">
-					<a href="javascript:void(0)">
-						<i class="fab fa-facebook-f"></i>
-					</a>
-					<a href="javascript:void(0)">
-						<i class="fab fa-instagram"></i>
-					</a>
-					<a href="javascript:void(0)">
-						<i class="fab fa-twitter"></i>
-					</a>
-					<a href="javascript:void(0)">
-						<i class="fab fa-youtube"></i>
-					</a>
-					<a href="javascript:void(0)">
-						<i class="far fa-envelope"></i>
-					</a>
-				</li>
-			</ul>
-		</div>
-		<!-- topBar end -->
 		<!-- Header start -->
 		<header id="header">
 			<!-- Navbar start -->
@@ -118,11 +66,32 @@
 										<a class="nav-link" href="#pages">Pages</a>
 									</li>
 									<span class="divider"></span>
-									<li class="nav-item login">
-										<a class="nav-link" href="#two">Log in</a>
+									<li class="nav-item">
+										<a class="nav-link login">Log in</a>
+										<div id="login-div">
+											<p>Please enter your username and password</p>
+											<div class="input-group mb-3">
+												<input type="text" class="form-control" placeholder="Username" aria-label="Enter Username" />
+												<div class="input-group-append">
+													<span class="input-group-text">
+														<i class="fas fa-user-tie"></i>
+													</span>
+												</div>
+											</div>
+											<div class="input-group mb-1">
+												<input type="password" class="form-control" placeholder="Password" aria-label="Enter Password" />
+												<div class="input-group-append">
+													<span class="input-group-text">
+														<i class="fas fa-key"></i>
+													</span>
+												</div>
+											</div>
+											<button class="btn btn-forgot-password">Forgot password?</button>
+											<button class="btn btn-login">Log in</button>
+										</div>
 									</li>
-									<li class="nav-item register">
-										<a class="nav-link" href="#three">Register</a>
+									<li class="nav-item">
+										<a class="nav-link register">Register</a>
 									</li>
 								</ul>
 							</nav>

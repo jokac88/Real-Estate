@@ -141,3 +141,9 @@ setInterval(function () {
 		.end()
 		.appendTo('#slideshow');
 }, 9000);
+
+$(document).ready(function () {
+	$(".login").click(function () {
+		$("#login-div").toggle();
+	});
+});
