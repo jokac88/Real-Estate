@@ -9,9 +9,9 @@
 	<meta name="keywords" content=" " />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<title>Real Estate</title>
-	<meta name="theme-color" content="#000000" />
-	<meta name="msapplication-navbutton-color" content="#000000" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="#000000" />
+	<meta name="theme-color" content="#8cc53f" />
+	<meta name="msapplication-navbutton-color" content="#8cc53f" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="#8cc53f" />
 	<!-- Meta tag end-->
 	<!-- Favicon start -->
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
@@ -57,7 +57,7 @@
 										<a class="nav-link" href="#header">Home</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="#listings">Listings</a>
+										<a class="nav-link" href="#houses">Houses</a>
 									</li>
 									<li class="nav-item">
 										<a class="nav-link" href="#Agents">Agents</a>
@@ -126,27 +126,25 @@
 					<div class="col-md-6 offset-md-3">
 						<h2 class="text-center">Find your new home</h2>
 						<h3 class="text-center">We will help you to find the best places to spend time in any city in the world.</h3>
-						<div>
-							<div class="input-group">
-								<input type="text" class="col-md-8 offset-md-1 form-control" placeholder="Enter locality, developer landmark or project" />
-								<div class="input-group-append">
-									<btn class="btn input-group-text location">
-										<i class="fas fa-map-marker-alt"></i>
-									</btn>
-								</div>
-								<div class="input-group-append">
-									<button class="btn input-group-text search">
-										Search!
-									</button>
-								</div>
+						<div class="input-group">
+							<input type="text" class="col-md-8 offset-md-1 form-control" placeholder="Enter locality, developer landmark or project" />
+							<div class="input-group-append">
+								<btn class="btn input-group-text location">
+									<i class="fas fa-map-marker-alt"></i>
+								</btn>
 							</div>
-							<button class="btn btn-rent active">
-								For Rent
-							</button>
-							<button class="btn btn-sell">
-								For Sell
-							</button>
+							<div class="input-group-append">
+								<button class="btn input-group-text search">
+									Search!
+								</button>
+							</div>
 						</div>
+						<button class="btn btn-rent active">
+							For Rent
+						</button>
+						<button class="btn btn-sell">
+							For Sell
+						</button>
 					</div>
 				</div>
 				<!-- Search-bar end -->
@@ -154,17 +152,61 @@
 			<!-- Search end -->
 		</header>
 		<!-- Header end -->
+		<!-- Sticky-social-bar start -->
+		<div id="sticky-social-bar">
+			<div class="social facebook">
+				<a href="https://www.facebook.com" target="_blank">
+					<i class="fab fa-facebook-f"></i>
+					<span class="tooltiptext">Facebook</span>
+				</a>
+			</div>
+			<div class="social instagram">
+				<a href="https://www.instagram.com" target="_blank">
+					<i class="fab fa-instagram"></i>
+					<span class="tooltiptext">Instagram</span>
+				</a>
+
+			</div>
+			<div class="social twitter">
+				<a href="https://www.twitter.com" target="_blank">
+					<i class="fab fa-twitter"></i>
+					<span class="tooltiptext">Twitter</span>
+				</a>
+			</div>
+			<div class="social youtube">
+				<a href="https://www.youtube.com" target="_blank">
+					<i class="fab fa-youtube"></i>
+					<span class="tooltiptext">YouTube</span>
+				</a>
+			</div>
+			<div class="social chat">
+				<a href="javascript:void(0)" target="_blank">
+					<i class="fab fa-facebook-messenger"></i>
+					<span class="tooltiptext">Messenger</span>
+				</a>
+			</div>
+		</div>
+		<!-- Sticky-social-bar end -->
 		<!-- Content start -->
 		<div id="content" data-spy="scroll" data-target="#nav-bar" data-offset="0">
-			<div class="container">
-				<div id="listings" class="text">
-					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+			<div id="houses">
+				<div class="container p-0">
+					<div id="lightgallery">
+						<a class="col-md-3 item-img" href="img/houses/1.jpg">
+							<img src="img/houses/1.jpg" alt="img/houses/1.jpg" />
+							<div class="view">
+								<i class="fas fa-search" title="Open"></i>
+							</div>
+						</a>
+					</div>
 				</div>
-				<div id="agents" class="text">
-					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-				</div>
-				<div id="pages" class="text">
-					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+				<div class="container">
+					<div id="agents" class="text">
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+					</div>
+					<div id="pages" class="text">
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+					</div>
 				</div>
 			</div>
 		</div>

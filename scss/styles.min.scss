@@ -4,6 +4,7 @@ $font: 'Open Sans',
 sans-serif;
 
 $white: #ffffff;
+$white-f2: #f2f2f2;
 $green: #8cc53f;
 $green-active: #6d9d2f;
 $yellow: #ffce40;
@@ -38,13 +39,13 @@ a {
 	}
 }
 
-button:focus {
+:focus {
 	outline: none !important;
 	box-shadow: none !important;
 }
 
 input:focus {
-	@extend button:focus;
+	@extend :focus;
 	border-color: #ced4da !important;
 }
 
@@ -155,12 +156,139 @@ header nav ul {
 ----------------------------*/
 
 /*----------------------------
+    Sidebar start
+----------------------------*/
+
+#sticky-social-bar {
+	position: fixed;
+	top: 50%;
+	left: 0;
+	transform: translate(0, -50%);
+
+	.social {
+		transition: all $transition;
+		cursor: pointer;
+		border-top-right-radius: 3px;
+		border-bottom-right-radius: 3px;
+		width: 15px;
+		height: 50px;
+		position: relative;
+
+		&:hover {
+			width: 50px;
+		}
+
+		&:hover svg {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		&.facebook {
+			background-color: #4267B2;
+
+			&:hover {
+				background-color: #375695;
+			}
+		}
+
+		&.instagram {
+			background: #d6249f;
+
+			&:hover {
+				background-color: #ae1e81;
+			}
+		}
+
+		&.twitter {
+			background-color: #1DA1F2;
+
+			&:hover {
+				background-color: #0d8bd9;
+			}
+		}
+
+		&.youtube {
+			background-color: #FF0000;
+
+			&:hover {
+				background-color: #cc0000;
+			}
+		}
+
+		&.chat {
+			background-color: $green;
+
+			&:hover {
+				background-color: #7bb135;
+			}
+		}
+
+		.tooltiptext {
+			width: 80px;
+			background-color: #e6e6e6;
+			color: #000000;
+			visibility: hidden;
+			opacity: 0;
+			text-align: center;
+			border-radius: 3px;
+			padding: 5px 0;
+			position: absolute;
+			left: 55px;
+			top: 50%;
+			transform: translate(0, -50%);
+			font-size: 11px;
+		}
+
+		.tooltiptext::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: -10px;
+			transform: translate(0, -50%);
+			border-width: 5px;
+			border-style: solid;
+			border-color: transparent #e6e6e6 transparent transparent;
+		}
+
+		&:hover .tooltiptext {
+			visibility: visible;
+			opacity: 1;
+		}
+
+		a {
+			display: block;
+			width: 100%;
+			height: 100%;
+
+			svg {
+				color: $white;
+				font-size: 22px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				transition: $transition;
+				opacity: 0;
+				visibility: hidden;
+			}
+		}
+	}
+}
+
+/*----------------------------
+    Sidebar end
+----------------------------*/
+
+/*----------------------------
     Navbar start
 ----------------------------*/
 
 #navbar {
 	background-color: $green;
 	padding: 5px 0;
+	-webkit-box-shadow: 0px 2px 10px -2px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 2px 10px -2px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 2px 10px -2px rgba(0, 0, 0, 0.75);
 	animation: 3s ease-out 0s 1 slideInFromLeft;
 
 	@keyframes slideInFromLeft {
@@ -215,7 +343,7 @@ header nav ul {
 		}
 
 		input {
-			padding: 15px 10px;
+			padding: 15px 10px 14px;
 			font-size: 13px;
 			border: none;
 
@@ -271,24 +399,13 @@ header nav ul {
 #search {
 	position: relative;
 	min-height: 800px;
-}
 
-#slideshow {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-
-	.slider {
+	#slideshow {
 		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
 		width: 100%;
 		height: 100%;
 
-		&::before {
-			content: '';
+		.slider {
 			position: absolute;
 			top: 0;
 			right: 0;
@@ -296,132 +413,143 @@ header nav ul {
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background-color: rgba(0, 0, 0, .7);
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, .5);
+			}
+
+			& img {
+				width: 100%;
+				height: 100%;
+				cursor: default;
+			}
 		}
-
-		& img {
-			width: 100%;
-			height: 100%;
-			cursor: default;
-		}
-	}
-}
-
-#search-bar {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 100%;
-	transform: translate(-50%, -50%);
-
-	h2 {
-		font-size: 42px;
-		margin-bottom: 20px;
-		font-weight: bold;
-		animation: 3s ease-out 0s 1 AnimateTop;
 	}
 
-	h3 {
-		font-size: 18px;
-		margin-bottom: 30px;
-		animation: 3s ease-out 0s 1 AnimateBottom;
-	}
-
-	.form-control {
-		font-size: 16px;
-		padding: 20px 12px;
-		border: none;
-		z-index: 3;
-		transition: all $transition;
-		animation: 3s ease-out 0s 1 AnimateBottom;
-	}
-
-	.form-control:focus {
-		background-color: $yellow-input;
-	}
-
-	.location {
-		background-color: #e6e6e6;
-		padding: 10px 15px;
-		font-size: 17px;
-		color: #999999;
-		border: none;
-		transition: background $transition;
-		animation: 3s ease-out 0s 1 AnimateBottom;
-	}
-
-	.location:hover {
-		background-color: #d9d9d9;
-	}
-
-	.search {
-		background-color: $yellow;
-		border-color: transparent;
-		font-size: 18px;
-		font-weight: bold;
-		transition: background $transition;
-		animation: 3s ease-out 0s 1 AnimateBottom;
-	}
-
-	.search:hover {
-		background-color: #ffbf00;
-	}
-
-	.btn-rent,
-	.btn-sell {
-		background-color: transparent;
-		margin: 10px;
-		margin-top: 15px;
-		padding: 10px;
-		min-width: 100px;
-		position: relative;
-		left: 25%;
-		font-size: 16px;
-		color: $white;
-		font-weight: bold;
-		animation: 3s ease-out 0s 1 AnimateBottom;
-	}
-
-	.active {
-		background-color: $green;
-	}
-
-	.active::before {
-		content: '';
+	#search-bar {
 		position: absolute;
-		bottom: 75%;
+		top: 50%;
 		left: 50%;
-		transform: translate(-50%, -75%);
-		border-left: 12px solid transparent;
-		border-right: 12px solid transparent;
-		border-bottom: 12px solid $green;
-	}
+		width: 100%;
+		transform: translate(-50%, -50%);
 
-	@keyframes AnimateTop {
-		0% {
-			transform: translateY(-100%);
-			opacity: 0;
-			visibility: hidden;
+		h2 {
+			font-size: 42px;
+			margin-bottom: 20px;
+			font-weight: bold;
+			animation: 3s ease-out 0s 1 AnimateTop;
 		}
 
-		100% {
-			transform: translateY(0);
-			opacity: 1;
-			visibility: visible;
-		}
-	}
-
-	@keyframes AnimateBottom {
-		0% {
-			transform: translateY(100%);
-			opacity: 0;
-			visibility: hidden;
+		h3 {
+			font-size: 18px;
+			margin-bottom: 30px;
+			animation: 3s ease-out 0s 1 AnimateBottom;
 		}
 
-		100% {
-			transform: translateY(0);
-			opacity: 1;
-			visibility: visible;
+		.form-control {
+			font-size: 16px;
+			padding: 20px 12px;
+			border: none;
+			z-index: 3;
+			transition: all $transition;
+			animation: 3s ease-out 0s 1 AnimateBottom;
+		}
+
+		.form-control:focus {
+			background-color: $yellow-input;
+		}
+
+		.location {
+			background-color: #e6e6e6;
+			padding: 10px 15px;
+			font-size: 17px;
+			color: #999999;
+			border: none;
+			transition: background $transition;
+			animation: 3s ease-out 0s 1 AnimateBottom;
+		}
+
+		.location:hover {
+			background-color: #d9d9d9;
+		}
+
+		.search {
+			background-color: $yellow;
+			border-color: transparent;
+			font-size: 18px;
+			font-weight: bold;
+			transition: background $transition;
+			animation: 3s ease-out 0s 1 AnimateBottom;
+		}
+
+		.search:hover {
+			background-color: #ffbf00;
+		}
+
+		.btn-rent,
+		.btn-sell {
+			background-color: transparent;
+			margin: 10px;
+			margin-top: 15px;
+			padding: 10px;
+			min-width: 100px;
+			position: relative;
+			left: 25%;
+			font-size: 16px;
+			color: $white;
+			font-weight: bold;
+			animation: 3s ease-out 0s 1 AnimateBottom;
+
+			&.active {
+				background-color: $green;
+			}
+
+			&.active::before {
+				content: '';
+				position: absolute;
+				bottom: 75%;
+				left: 50%;
+				transform: translate(-50%, -75%);
+				border-left: 12px solid transparent;
+				border-right: 12px solid transparent;
+				border-bottom: 12px solid $green;
+			}
+		}
+
+		@keyframes AnimateTop {
+			0% {
+				transform: translateY(-100%);
+				opacity: 0;
+				visibility: hidden;
+			}
+
+			100% {
+				transform: translateY(0);
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+		@keyframes AnimateBottom {
+			0% {
+				transform: translateY(100%);
+				opacity: 0;
+				visibility: hidden;
+			}
+
+			100% {
+				transform: translateY(0);
+				opacity: 1;
+				visibility: visible;
+			}
 		}
 	}
 }
@@ -441,6 +569,75 @@ header nav ul {
 
 /*----------------------------
     Content end
+----------------------------*/
+
+/*----------------------------
+    Houses start
+----------------------------*/
+
+#houses {
+	padding: 100px 0;
+
+	.lg-outer .lg-item {
+		background-size: 50px;
+	}
+
+	.item-img {
+		position: relative;
+		display: inline-block;
+		margin-right: -4px;
+		margin-bottom: -7px;
+		overflow: hidden;
+		margin-bottom: 30px;
+
+		img {
+			height: 160px;
+			transition: all .7s ease;
+			background: linear-gradient(0deg, rgba(0, 0, 0, .75) 0, rgba(0, 0, 0, .75) 3%, rgba(0, 0, 0, 0) 100%);
+		}
+
+		&:hover .view {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.view {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			visibility: hidden;
+			transition: all .5s ease;
+
+			svg {
+				font-size: 40px;
+				color: #000000;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				padding: 12px;
+				border-radius: 50%;
+				transition: all $transition;
+				background-color: #ffffff;
+
+				&:hover {
+					color: #ffffff;
+					background-color: #000000;
+				}
+			}
+		}
+	}
+}
+
+/*----------------------------
+    Houses end
+----------------------------*/
+
+/*----------------------------
+    Footer start
 ----------------------------*/
 
 /*----------------------------
@@ -478,8 +675,8 @@ footer {}
 	}
 
 	&.show {
-		opacity: 1 !important;
-		visibility: visible !important;
+		opacity: 1;
+		visibility: visible;
 	}
 }
 
