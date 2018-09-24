@@ -9,6 +9,7 @@ $green: #8cc53f;
 $green-active: #6d9d2f;
 $yellow: #ffce40;
 $yellow-input: #FAFFBD;
+$star: #ffc929;
 $transition: .3s ease;
 
 html,
@@ -57,6 +58,10 @@ img {
 
 svg {
 	cursor: pointer;
+}
+
+.lg-outer .lg-item {
+	background-size: 50px;
 }
 
 /*----------------------------
@@ -176,11 +181,11 @@ header nav ul {
 
 		&:hover {
 			width: 50px;
-		}
 
-		&:hover svg {
-			opacity: 1;
-			visibility: visible;
+			svg {
+				opacity: 1;
+				visibility: visible;
+			}
 		}
 
 		&.facebook {
@@ -257,7 +262,6 @@ header nav ul {
 
 		a {
 			display: block;
-			width: 100%;
 			height: 100%;
 
 			svg {
@@ -284,11 +288,12 @@ header nav ul {
 ----------------------------*/
 
 #navbar {
-	background-color: $green;
+	background-color: $green-active;
+	background-image: linear-gradient(to right, $green-active 10%, $green 100%);
 	padding: 5px 0;
-	-webkit-box-shadow: 0px 2px 10px -2px rgba(0, 0, 0, 0.75);
-	-moz-box-shadow: 0px 2px 10px -2px rgba(0, 0, 0, 0.75);
-	box-shadow: 0px 2px 10px -2px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 	animation: 3s ease-out 0s 1 slideInFromLeft;
 
 	@keyframes slideInFromLeft {
@@ -306,6 +311,7 @@ header nav ul {
 	}
 
 	.nav-pills .nav-link.active,
+	.nav-pills .nav-link.login-active,
 	.nav-pills .show > .nav-link {
 		background-color: $green-active;
 		color: #white;
@@ -423,7 +429,7 @@ header nav ul {
 				left: 0;
 				width: 100%;
 				height: 100%;
-				background-color: rgba(0, 0, 0, .5);
+				background-color: rgba(0, 0, 0, .7);
 			}
 
 			& img {
@@ -436,8 +442,8 @@ header nav ul {
 
 	#search-bar {
 		position: absolute;
-		top: 50%;
 		left: 50%;
+		top: 50%;
 		width: 100%;
 		transform: translate(-50%, -50%);
 
@@ -498,11 +504,10 @@ header nav ul {
 		.btn-sell {
 			background-color: transparent;
 			margin: 10px;
-			margin-top: 15px;
 			padding: 10px;
 			min-width: 100px;
 			position: relative;
-			left: 25%;
+			left: 22%;
 			font-size: 16px;
 			color: $white;
 			font-weight: bold;
@@ -521,6 +526,22 @@ header nav ul {
 				border-left: 12px solid transparent;
 				border-right: 12px solid transparent;
 				border-bottom: 12px solid $green;
+			}
+
+			&:not(.active):hover {
+				background-color: $green;
+			}
+
+			&:not(.active):hover::before {
+				content: '';
+				position: absolute;
+				bottom: 75%;
+				left: 50%;
+				transform: translate(-50%, -75%);
+				border-left: 12px solid transparent;
+				border-right: 12px solid transparent;
+				border-bottom: 12px solid $green;
+				transition: all $transition;
 			}
 		}
 
@@ -564,7 +585,6 @@ header nav ul {
 
 #content .text {
 	color: #000000;
-	margin: 50px 0;
 }
 
 /*----------------------------
@@ -578,57 +598,95 @@ header nav ul {
 #houses {
 	padding: 100px 0;
 
-	.lg-outer .lg-item {
-		background-size: 50px;
-	}
-
 	.item-img {
-		position: relative;
+		width: 25%;
+		padding: 15px;
 		display: inline-block;
-		margin-right: -4px;
-		margin-bottom: -7px;
+		margin-right: -3px;
 		overflow: hidden;
-		margin-bottom: 30px;
+		margin-bottom: 15px;
+		transition: all $transition;
+		cursor: default;
 
 		img {
 			height: 160px;
-			transition: all .7s ease;
-			background: linear-gradient(0deg, rgba(0, 0, 0, .75) 0, rgba(0, 0, 0, .75) 3%, rgba(0, 0, 0, 0) 100%);
-		}
+			border-top-left-radius: 3px;
+			border-top-right-radius: 3px;
 
-		&:hover .view {
-			opacity: 1;
-			visibility: visible;
+			&:hover .view svg {
+				opacity: 1;
+				visibility: visible;
+				bottom: 60px;
+			}
 		}
 
 		.view {
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			opacity: 0;
-			visibility: hidden;
-			transition: all .5s ease;
+			position: relative;
 
 			svg {
-				font-size: 40px;
-				color: #000000;
+				font-size: 35px;
+				color: $white;
+				background-color: #000000;
+				border-radius: 50%;
+				padding: 10px;
 				position: absolute;
 				left: 50%;
-				top: 50%;
-				transform: translate(-50%, -50%);
-				padding: 12px;
-				border-radius: 50%;
+				bottom: 0;
+				transform: translate(-50%, 0);
+				opacity: 0;
+				visibility: hidden;
 				transition: all $transition;
-				background-color: #ffffff;
-
-				&:hover {
-					color: #ffffff;
-					background-color: #000000;
-				}
 			}
 		}
+
+		.details {
+			border: 1px solid #eaeaea;
+			border-top: none;
+			border-bottom-left-radius: 3px;
+			border-bottom-right-radius: 3px;
+			padding: 15px;
+
+			.rating svg {
+				color: $star;
+				cursor: default;
+				font-size: 15px;
+			}
+
+			p {
+				margin: 15px 0;
+				color: #000000;
+				display: inline-block;
+				font-size: 16px;
+			}
+
+			.name {
+
+				&:hover {
+					cursor: pointer;
+					text-decoration: underline;
+				}
+			}
+
+			.price {
+				float: right;
+				clear: both;
+				color: #85bb65;
+			}
+		}
+
+	}
+
+	.btn {
+		width: 47%;
+		display: inline-block;
+		font-weight: bold;
+		text-transform: uppercase;
+		border-radius: 3px;
+	}
+
+	#btn-buy {
+		float: right;
+		clear: both;
 	}
 }
 
@@ -658,17 +716,25 @@ footer {}
 	position: fixed;
 	bottom: 30px;
 	right: 15px;
-	width: 45px;
-	height: 45px;
+	width: 40px;
+	height: 40px;
 	z-index: 999;
 	cursor: pointer;
 	transition: all $transition;
-	background: url("../img/back-to-top.png") center no-repeat;
-	background-size: 30px;
 	background-color: $green;
-	border: 2px solid #ffffff;
+	border-radius: 3px;
 	opacity: 0;
 	visibility: hidden;
+
+	svg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 30px;
+		color: $white;
+		transition: all $transition;
+	}
 
 	&:hover {
 		background-color: $green-active;

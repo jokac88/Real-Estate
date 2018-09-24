@@ -135,22 +135,25 @@ $("#slideshow > div:gt(0)").hide();
 
 setInterval(function () {
 	$('#slideshow > div:first')
-		.fadeOut(2000)
+		.fadeOut(4000)
 		.next()
-		.fadeIn(2000)
+		.fadeIn(4000)
 		.end()
 		.appendTo('#slideshow');
-}, 6000);
+}, 12000);
 
 $(document).ready(function () {
 	$(".login").click(function () {
 		$("#login-div").toggle();
+		$(".login").toggleClass("login-active");
 	});
 });
 
-
 $(document).ready(function () {
-	$(".social").hover(function () {
-		$(this).find("span").toggleClass("active");
+	$(".nav-link").click(function () {
+		var href = $(this).attr('href');
+		$('html, body').animate({
+			scrollTop: $(href).offset().top
+		}, 1000);
 	});
 });
