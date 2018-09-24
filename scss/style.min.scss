@@ -5,6 +5,7 @@ sans-serif;
 
 $white: #ffffff;
 $white-f2: #f2f2f2;
+$border: #eaeaea;
 $green: #8cc53f;
 $green-active: #6d9d2f;
 $yellow: #ffce40;
@@ -228,37 +229,37 @@ header nav ul {
 			}
 		}
 
-		.tooltiptext {
-			width: 80px;
-			background-color: #e6e6e6;
-			color: #000000;
-			visibility: hidden;
-			opacity: 0;
-			text-align: center;
-			border-radius: 3px;
-			padding: 5px 0;
-			position: absolute;
-			left: 55px;
-			top: 50%;
-			transform: translate(0, -50%);
-			font-size: 11px;
-		}
-
-		.tooltiptext::after {
-			content: "";
-			position: absolute;
-			top: 50%;
-			left: -10px;
-			transform: translate(0, -50%);
-			border-width: 5px;
-			border-style: solid;
-			border-color: transparent #e6e6e6 transparent transparent;
-		}
-
-		&:hover .tooltiptext {
-			visibility: visible;
-			opacity: 1;
-		}
+		//		.tooltiptext {
+		//			width: 80px;
+		//			background-color: #e6e6e6;
+		//			color: #000000;
+		//			visibility: hidden;
+		//			opacity: 0;
+		//			text-align: center;
+		//			border-radius: 3px;
+		//			padding: 5px 0;
+		//			position: absolute;
+		//			left: 55px;
+		//			top: 50%;
+		//			transform: translate(0, -50%);
+		//			font-size: 11px;
+		//		}
+		//
+		//		.tooltiptext::after {
+		//			content: "";
+		//			position: absolute;
+		//			top: 50%;
+		//			left: -10px;
+		//			transform: translate(0, -50%);
+		//			border-width: 5px;
+		//			border-style: solid;
+		//			border-color: transparent #e6e6e6 transparent transparent;
+		//		}
+		//
+		//		&:hover .tooltiptext {
+		//			visibility: visible;
+		//			opacity: 1;
+		//		}
 
 		a {
 			display: block;
@@ -596,51 +597,59 @@ header nav ul {
 ----------------------------*/
 
 #houses {
-	padding: 100px 0;
+	padding: 50px 0;
 
-	.item-img {
-		width: 25%;
-		padding: 15px;
-		display: inline-block;
-		margin-right: -3px;
-		overflow: hidden;
-		margin-bottom: 15px;
+	.btn-gridItem,
+	.btn-listItem {
+		background-color: transparent;
+		margin-bottom: 20px;
+		margin-right: 5px;
+		padding: 5px 10px;
+		font-size: 26px;
+		
+		&.active,
+		&:hover {
+			background-color: #f2f2f2;
+		}
+	}
+
+	.item {
+		margin-bottom: 30px;
 		transition: all $transition;
 		cursor: default;
 
-		img {
-			height: 160px;
-			border-top-left-radius: 3px;
-			border-top-right-radius: 3px;
-
-			&:hover .view svg {
-				opacity: 1;
-				visibility: visible;
-				bottom: 60px;
-			}
-		}
-
-		.view {
+		.image {
 			position: relative;
+			cursor: pointer;
 
-			svg {
-				font-size: 35px;
-				color: $white;
-				background-color: #000000;
-				border-radius: 50%;
-				padding: 10px;
+			&::before {
+				content: '';
 				position: absolute;
-				left: 50%;
+				top: 0;
+				right: 0;
 				bottom: 0;
-				transform: translate(-50%, 0);
-				opacity: 0;
-				visibility: hidden;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, .2);
+				border-top-left-radius: 3px;
+				border-top-right-radius: 3px;
 				transition: all $transition;
+			}
+
+			&:hover::before {
+				background-color: rgba(0, 0, 0, 0);
+			}
+
+			img {
+				border-top-left-radius: 3px;
+				border-top-right-radius: 3px;
+				height: 170px;
 			}
 		}
 
 		.details {
-			border: 1px solid #eaeaea;
+			border: 1px solid $border;
 			border-top: none;
 			border-bottom-left-radius: 3px;
 			border-bottom-right-radius: 3px;
@@ -672,21 +681,97 @@ header nav ul {
 				clear: both;
 				color: #85bb65;
 			}
+
+			.buttons {
+				.btn {
+					width: 47%;
+					min-width: 100px;
+					text-align: center;
+					display: inline-block;
+					font-weight: bold;
+					text-transform: uppercase;
+					border-radius: 3px;
+				}
+
+				#btn-buy {
+					float: right;
+					clear: both;
+				}
+			}
 		}
-
 	}
 
-	.btn {
-		width: 47%;
-		display: inline-block;
+	.listItem {
+		display: none;
+
+		.item {
+			margin-bottom: 50px;
+			position: relative;
+			padding: 15px;
+			border: 1px solid $border;
+			border-radius: 3px;
+
+			.image {
+				width: 50%;
+				border-radius: 0;
+				border-top-left-radius: 3px;
+				border-bottom-left-radius: 3px;
+
+				&::before {
+					border-radius: 3px;
+				}
+
+				img {
+					border-radius: 3px;
+					height: 170px;
+				}
+			}
+
+			.details {
+				position: absolute;
+				top: 15px;
+				right: 15px;
+				width: 45%;
+				height: 100%;
+				padding: 0;
+				border: none;
+
+				h4 {
+					color: #000000;
+					font-style: italic;
+					margin-bottom: 5px;
+				}
+
+				h6 {
+					color: #000000;
+					margin-bottom: 10px;
+
+					svg {
+						vertical-align: top;
+					}
+				}
+
+				.buttons {
+					position: absolute;
+					bottom: 30px;
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	.btn-property {
+		margin-bottom: 40px;
+		width: 50%;
+		padding: 12px 0 11px;
+		font-size: 16px;
+		background-color: $green;
+		color: $white;
 		font-weight: bold;
-		text-transform: uppercase;
-		border-radius: 3px;
-	}
 
-	#btn-buy {
-		float: right;
-		clear: both;
+		&:hover {
+			background-color: $green-active;
+		}
 	}
 }
 
@@ -695,6 +780,59 @@ header nav ul {
 ----------------------------*/
 
 /*----------------------------
+    About-us start
+----------------------------*/
+
+#about-us {
+	padding: 50px 0;
+	color: #000000;
+
+	h4 {
+		letter-spacing: 1px;
+		line-height: 1.5;
+		margin-bottom: 20px;
+	}
+
+	ul {
+		margin-bottom: 20px;
+		padding: 0;
+
+		li {
+			list-style: none;
+			margin-bottom: 3px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			svg {
+				font-size: 12px;
+				color: $green;
+				margin-right: 3px;
+				vertical-align: unset;
+			}
+		}
+	}
+
+	.btn-get {
+		background-color: $green;
+		color: $white;
+		padding: 8px 12px;
+		text-transform: uppercase;
+		transition: $transition;
+		font-weight: bold;
+
+		&:hover {
+			background-color: $green-active;
+		}
+	}
+}
+
+/*----------------------------
+    About-us end
+----------------------------*/
+
+/*----------------------------
     Footer start
 ----------------------------*/
 
@@ -702,7 +840,10 @@ header nav ul {
     Footer start
 ----------------------------*/
 
-footer {}
+footer {
+	padding: 50px 0;
+	background-color: dimgray;
+}
 
 /*----------------------------
     Footer end

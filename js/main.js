@@ -1,4 +1,4 @@
-lightGallery(document.getElementById('lightgallery'));
+//lightGallery(document.getElementById('lightgallery'));
 
 $(document).ready(function () {
 	if ($("#back-to-top").length) {
@@ -153,7 +153,23 @@ $(document).ready(function () {
 	$(".nav-link").click(function () {
 		var href = $(this).attr('href');
 		$('html, body').animate({
-			scrollTop: $(href).offset().top
+			scrollTop: $(href).offset().top - 20
 		}, 1000);
+	});
+});
+
+
+$(document).ready(function () {
+	$(".btn-gridItem").click(function () {
+		$(".gridItem").show("slow");
+		$(".listItem").hide("slow");
+		$(this).addClass("active");
+		$(".btn-listItem").removeClass("active");
+	});
+	$(".btn-listItem").click(function () {
+		$(".listItem").show("slow");
+		$(".gridItem").hide("slow");
+		$(this).addClass("active");
+		$(".btn-gridItem").removeClass("active");
 	});
 });
