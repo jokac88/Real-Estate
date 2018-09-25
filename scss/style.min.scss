@@ -34,7 +34,7 @@ body {
 }
 
 a {
-	text-decoration: none !important;
+	text-decoration: none;
 
 	&:hover {
 		color: $white;
@@ -48,7 +48,7 @@ a {
 
 input:focus {
 	@extend :focus;
-	border-color: #ced4da !important;
+	border-color: #ced4da;
 }
 
 img {
@@ -59,6 +59,14 @@ img {
 
 svg {
 	cursor: pointer;
+}
+
+.page-item {
+	&.active {
+		.page-link {
+			z-index: 999;
+		}
+	}
 }
 
 .lg-outer .lg-item {
@@ -336,8 +344,8 @@ header nav ul {
 			content: '';
 			position: absolute;
 			top: -12px;
-			left: 50%;
-			transform: translate(-50%, 0%);
+			left: 55%;
+			transform: translate(-55%, 0%);
 			border-left: 12px solid transparent;
 			border-right: 12px solid transparent;
 			border-bottom: 12px solid $green;
@@ -606,7 +614,7 @@ header nav ul {
 		margin-right: 5px;
 		padding: 5px 10px;
 		font-size: 26px;
-		
+
 		&.active,
 		&:hover {
 			background-color: #f2f2f2;
@@ -842,7 +850,56 @@ header nav ul {
 
 footer {
 	padding: 50px 0;
-	background-color: dimgray;
+	background-color: #000000;
+
+	#footer-list {
+
+		.nav-tabs {
+			border: none;
+
+			.nav-item {
+				width: 20%;
+				position: relative;
+				top: 3px;
+
+				&:first-child .nav-link {
+					padding-left: 0;
+					text-align: left;
+				}
+
+				&:last-child .nav-link {
+					padding-right: 0;
+					text-align: right;
+				}
+
+				.nav-link {
+					width: 50%;
+					margin: 0 auto;
+					border: none;
+					color: $white;
+					text-transform: uppercase;
+					letter-spacing: 1px;
+					font-weight: bold;
+					padding: 12px 0;
+					text-align: center;
+
+					&:hover {
+						border: none;
+					}
+
+					&.active {
+						background-color: transparent;
+						border-bottom: 4px solid $green-active;
+						color: $white;
+					}
+				}
+			}
+		}
+
+		.tab-content {
+			border-top: 4px solid $green;
+		}
+	}
 }
 
 /*----------------------------

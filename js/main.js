@@ -150,7 +150,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-	$(".nav-link").click(function () {
+	$("#navbar .nav-link").click(function () {
 		var href = $(this).attr('href');
 		$('html, body').animate({
 			scrollTop: $(href).offset().top - 20
