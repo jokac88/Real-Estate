@@ -153,7 +153,7 @@ $(document).ready(function () {
 	$("#navbar .nav-link").click(function () {
 		var href = $(this).attr('href');
 		$('html, body').animate({
-			scrollTop: $(href).offset().top - 20
+			scrollTop: $(href).offset().top
 		}, 1000);
 	});
 });
