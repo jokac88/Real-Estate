@@ -143,14 +143,7 @@ setInterval(function () {
 }, 12000);
 
 $(document).ready(function () {
-	$(".login").click(function () {
-		$("#login-div").toggle();
-		$(".login").toggleClass("login-active");
-	});
-});
-
-$(document).ready(function () {
-	$("#navbar .nav-link").click(function () {
+	$("#first-nav .nav-link").click(function () {
 		var href = $(this).attr('href');
 		$('html, body').animate({
 			scrollTop: $(href).offset().top
@@ -158,18 +151,62 @@ $(document).ready(function () {
 	});
 });
 
+$(document).ready(function () {
+	$('.grid-list').on('click', '.btn', function () {
+		$(this).addClass('active').siblings().removeClass('active');
+	});
+});
 
 $(document).ready(function () {
-	$(".btn-gridItem").click(function () {
-		$(".gridItem").show("slow");
-		$(".listItem").hide("slow");
-		$(this).addClass("active");
-		$(".btn-listItem").removeClass("active");
+	$('.button-group.type').on('click', '.btn', function () {
+		$(this).addClass('active').siblings().removeClass('active');
 	});
-	$(".btn-listItem").click(function () {
-		$(".listItem").show("slow");
-		$(".gridItem").hide("slow");
-		$(this).addClass("active");
-		$(".btn-gridItem").removeClass("active");
+});
+
+$(document).on('click', function (event) {
+	if (!$(event.target).closest("#login-div").length) {
+		$("#login-div").removeClass("show");
+	}
+	if (!$(event.target).closest(".button-group.price").length) {
+		$("#price").removeClass("show");
+		$(".btn-price").attr("aria-expanded", "false");
+	}
+	if (!$(event.target).closest(".button-group.rooms").length) {
+		$("#rooms").removeClass("show");
+		$(".btn-rooms").attr("aria-expanded", "false");
+	}
+	if (!$(event.target).closest("#rent-div .button-group.type").length) {
+		$("#type").removeClass("show");
+		$(".btn-type").attr("aria-expanded", "false");
+	}
+	if (!$(event.target).closest("#buy-div .button-group.type-2").length) {
+		$("#type-2").removeClass("show");
+		$(".btn-type-2").attr("aria-expanded", "false");
+	}
+	if (!$(event.target).closest("#rent-div .button-group.space").length) {
+		$("#space").removeClass("show");
+		$(".btn-space").attr("aria-expanded", "false");
+	}
+	if (!$(event.target).closest("#buy-div .button-group.space-2").length) {
+		$("#space-2").removeClass("show");
+		$(".btn-space-2").attr("aria-expanded", "false");
+	}
+	if (!$(event.target).closest("#rent-div .button-group.year").length) {
+		$("#year").removeClass("show");
+		$(".btn-year").attr("aria-expanded", "false");
+	}
+	if (!$(event.target).closest("#buy-div .button-group.year-2").length) {
+		$("#year-2").removeClass("show");
+		$(".btn-year-2").attr("aria-expanded", "false");
+	}
+});
+
+$(document).ready(function () {
+	$(".btn-advanced-search").click(function () {
+		if ($("#advanced-search-div").hasClass("show")) {
+			$(".btn-advanced-search").html("Advanced search");
+		} else {
+			$(".btn-advanced-search").html("Close");
+		};
 	});
 });

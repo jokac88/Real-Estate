@@ -48,11 +48,11 @@
 				<div class="container-fluid">
 					<div class="row align-items-center">
 						<div class="col-md-4">
-							<h3 class="mb-0">RealEstate</h3>
+							<h3 class="mb-0">Real<b>Estate</b></h3>
 						</div>
 						<div class="col-md-8">
 							<nav id="nav-bar" class="navbar float-right pr-md-0">
-								<ul class="nav nav-pills">
+								<ul id="first-nav" class="nav nav-pills">
 									<li class="nav-item">
 										<a class="nav-link" href="#header">Home</a>
 									</li>
@@ -66,28 +66,32 @@
 										<a class="nav-link" href="#houses">Houses</a>
 									</li>
 									<span class="divider"></span>
+								</ul>
+								<ul id="second-nav" class="nav nav-pills">
 									<li class="nav-item">
-										<a class="nav-link login">Log in</a>
-										<div id="login-div">
-											<p>Please enter your username and password</p>
-											<div class="input-group mb-3">
-												<input type="text" class="form-control" placeholder="Username" aria-label="Enter Username" />
-												<div class="input-group-append">
-													<span class="input-group-text">
-														<i class="fas fa-user-alt"></i>
-													</span>
+										<a class="nav-link login" data-toggle="collapse" href="#login-div" role="button" aria-expanded="false" aria-controls="login-div">Log in</a>
+										<div id="login-div" class="collapse">
+											<div class="wrapper">
+												<p>Please enter your username and password</p>
+												<div class="input-group mb-3">
+													<input type="text" class="form-control" placeholder="Username" aria-label="Enter Username" />
+													<div class="input-group-append">
+														<span class="input-group-text">
+															<i class="fas fa-user-alt"></i>
+														</span>
+													</div>
 												</div>
-											</div>
-											<div class="input-group mb-1">
-												<input type="password" class="form-control" placeholder="Password" aria-label="Enter Password" />
-												<div class="input-group-append">
-													<span class="input-group-text">
-														<i class="fas fa-lock"></i>
-													</span>
+												<div class="input-group mb-1">
+													<input type="password" class="form-control" placeholder="Password" aria-label="Enter Password" />
+													<div class="input-group-append">
+														<span class="input-group-text">
+															<i class="fas fa-lock"></i>
+														</span>
+													</div>
 												</div>
+												<button class="btn btn-forgot-password">Forgot password?</button>
+												<button class="btn btn-login">Log in</button>
 											</div>
-											<button class="btn btn-forgot-password">Forgot password?</button>
-											<button class="btn btn-login">Log in</button>
 										</div>
 									</li>
 									<li class="nav-item">
@@ -249,624 +253,1081 @@
 			<!-- Houses start -->
 			<div id="houses">
 				<div class="container p-0">
-					<button class="btn btn-gridItem active" title="Grid item">
-						<i class="fas fa-th-large"></i>
-					</button>
-					<button class="btn btn-listItem" title="List item">
-						<i class="fas fa-list-ul"></i>
-					</button>
-					<!-- GridItem start -->
-					<div class="gridItem">
-						<div class="row">
-							<div class="col-md-3">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/1.jpg" alt="img/houses/1.jpg" />
+					<div class="main-search">
+						<div class="wrapper">
+							<h3 class="text-center">Real<b>Estate</b></h3>
+							<div class="row align-items-center">
+								<div class="button-group rent-buy">
+									<p>Search in</p>
+									<nav>
+										<div class="nav nav-tabs" role="tablist">
+											<button id="btn-rent" class="nav-item nav-link active" data-toggle="tab" href="#rent-div" role="tab" aria-controls="rent-div" aria-selected="true">Rent</button>
+											<button id="btn-buy" class="nav-item nav-link" data-toggle="tab" href="#buy-div" role="tab" aria-controls="buy-div" aria-selected="false">Buy</button>
+										</div>
+									</nav>
+								</div>
+								<div class="button-group">
+									<p>Search where</p>
+									<div class="location">
+										<input type="text" class="search-input" placeholder="Cities, regions, ZIP, country" />
+										<img class="icon-target" src="img/target.png" alt="img/target.png"></i>
 									</div>
-									<div class="details">
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
+								</div>
+								<div class="button-group">
+									<p>Category</p>
+									<select class="custom-select">
+										<option selected>Apartment &amp; house</option>
+										<option value="1">Apartment</option>
+										<option value="2">House, chalet, rustico</option>
+										<option value="3">Furnished dwelling</option>
+										<option value="4">Parking space, garage</option>
+										<option value="5">Office</option>
+										<option value="6">Commercial &amp; industry</option>
+										<option value="7">Storage room</option>
+										<option value="8">Holiday rentals</option>
+									</select>
+								</div>
+								<div class="button-group price">
+									<p>Price</p>
+									<button class="btn btn-price" type="button" data-toggle="collapse" href="#price" role="button" aria-expanded="false" aria-controls="price">
+										all
+										<i class="fas fa-caret-down"></i>
+									</button>
+									<div id="price" class="collapse">
+										<p>from</p>
+										<input type="number" class="input-group-text" />
+										<p>to</p>
+										<input type="number" class="input-group-text" />
+									</div>
+								</div>
+								<div class="button-group rooms">
+									<p>Rooms</p>
+									<button class="btn btn-rooms" type="button" data-toggle="collapse" href="#rooms" role="button" aria-expanded="false" aria-controls="rooms">
+										all
+										<i class="fas fa-caret-down"></i>
+									</button>
+									<div id="rooms" class="collapse">
+										<p>from</p>
+										<input type="number" class="input-group-text" />
+										<p>to</p>
+										<input type="number" class="input-group-text" />
+									</div>
+								</div>
+								<div class="button-group">
+									<button class="btn btn-search">Search</button>
+								</div>
+							</div>
+						</div>
+						<div class="advanced-search">
+							<button class="btn btn-advanced-search" type="button" data-toggle="collapse" href="#advanced-search-div" role="button" aria-expanded="false" aria-controls="advanced-search-div">Advanced search</button>
+							<i class="fas fa-angle-down"></i>
+						</div>
+						<div id="advanced-search-div" class="collapse">
+							<div class="tab-content">
+								<div id="rent-div" class="tab-pane fade show active" role="tabpanel" aria-labelledby="btn-rent">
+									<div class="wrapper">
+										<div class="row align-items-start m-0">
+											<div class="advanced-search-left">
+												<div class="row align-item-center">
+													<div class="button-group">
+														<p>Radius</p>
+														<select class="custom-select">
+															<option selected>none</option>
+															<option value="1">5 km</option>
+															<option value="2">10 km</option>
+															<option value="3">15 km</option>
+														</select>
+													</div>
+													<div class="button-group type">
+														<p>Type</p>
+														<button class="btn btn-type" type="button" data-toggle="collapse" href="#type" role="button" aria-expanded="false" aria-controls="type">
+															all
+															<i class="fas fa-caret-down"></i>
+														</button>
+														<div id="type" class="collapse">
+															<div class="custom-control custom-checkbox">
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck1" />
+																	<label class="custom-control-label" for="customCheck1">Apartment</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck2" />
+																	<label class="custom-control-label" for="customCheck2">Roof flat</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck3" />
+																	<label class="custom-control-label" for="customCheck3">Terrace flat</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck4" />
+																	<label class="custom-control-label" for="customCheck4">Mansard</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck5" />
+																	<label class="custom-control-label" for="customCheck5">Bifamiliar house</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck6" />
+																	<label class="custom-control-label" for="customCheck6">Farm house</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck7" />
+																	<label class="custom-control-label" for="customCheck7">Chalet</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck8" />
+																	<label class="custom-control-label" for="customCheck8">Cellar compartment</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck9" />
+																	<label class="custom-control-label" for="customCheck9">Duplex</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck10" />
+																	<label class="custom-control-label" for="customCheck10">Studio</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck11" />
+																	<label class="custom-control-label" for="customCheck11">Bachelor flat</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck12" />
+																	<label class="custom-control-label" for="customCheck12">Single house</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck13" />
+																	<label class="custom-control-label" for="customCheck13">Terrace house</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck14" />
+																	<label class="custom-control-label" for="customCheck14">Cave house/earthen hoyse</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck15" />
+																	<label class="custom-control-label" for="customCheck15">Rustic house</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck16" />
+																	<label class="custom-control-label" for="customCheck16">Attic compartment</label>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="button-group space">
+														<p>Living space in m<sup>2</sup></p>
+														<button class="btn btn-space" type="button" data-toggle="collapse" href="#space" role="button" aria-expanded="false" aria-controls="space">
+															all
+															<i class="fas fa-caret-down"></i>
+														</button>
+														<div id="space" class="collapse">
+															<p>from</p>
+															<input type="number" class="input-group-text" />
+															<p>to</p>
+															<input type="number" class="input-group-text" />
+														</div>
+													</div>
+												</div>
+												<div class="row align-items-center">
+													<div class="button-group year">
+														<p>Year built</p>
+														<button class="btn btn-year" type="button" data-toggle="collapse" href="#year" role="button" aria-expanded="false" aria-controls="year">
+															all
+															<i class="fas fa-caret-down"></i>
+														</button>
+														<div id="year" class="collapse">
+															<p>from</p>
+															<input type="number" class="input-group-text" />
+															<p>to</p>
+															<input type="number" class="input-group-text" />
+														</div>
+													</div>
+													<div class="button-group">
+														<p>Floor</p>
+														<select class="custom-select">
+															<option selected>all</option>
+															<option value="1">on GF</option>
+															<option value="2">not on GF</option>
+														</select>
+													</div>
+													<div class="button-group">
+														<p>Available</p>
+														<select class="custom-select">
+															<option selected>all</option>
+															<option value="1">immediately</option>
+															<option value="2">in 1 month</option>
+															<option value="3">in 2 month</option>
+															<option value="4">in 3 month</option>
+															<option value="5">in 4 month</option>
+															<option value="6">in 5 month</option>
+															<option value="7">in 6 month</option>
+															<option value="8">in 7 month</option>
+															<option value="9">in 8 month</option>
+															<option value="10">in 9 month</option>
+															<option value="11">in 10 month</option>
+															<option value="12">in 11 month</option>
+															<option value="12">in 12 month</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="advanced-search-right">
+												<div class="button-group">
+													<p>Features</p>
+													<div class="custom-control custom-checkbox">
+														<div class="checkbox-div">
+															<input type="checkbox" class="custom-control-input" id="customCheck17" />
+															<label class="custom-control-label" for="customCheck17">
+																Balcony / Patio</label>
+														</div>
+														<div class="checkbox-div">
+															<input type="checkbox" class="custom-control-input" id="customCheck18" />
+															<label class="custom-control-label" for="customCheck18">
+																Pets allowed</label>
+														</div>
+														<div class="checkbox-div">
+															<input type="checkbox" class="custom-control-input" id="customCheck19" />
+															<label class="custom-control-label" for="customCheck19">Minergie</label>
+														</div>
+														<div class="checkbox-div">
+															<input type="checkbox" class="custom-control-input" id="customCheck20" />
+															<label class="custom-control-label" for="customCheck20">Elevator</label>
+														</div>
+														<div class="checkbox-div">
+															<input type="checkbox" class="custom-control-input" id="customCheck21" />
+															<label class="custom-control-label" for="customCheck21">Has wheelchair access</label>
+														</div>
+														<div class="checkbox-div">
+															<input type="checkbox" class="custom-control-input" id="customCheck22" />
+															<label class="custom-control-label" for="customCheck22">New bulding</label>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
-										<div class="name-price">
-											<p class="name">House</p>
-											<p class="price">$2.300K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
+									</div>
+								</div>
+								<div id="buy-div" class="tab-pane fade" role="tabpanel" aria-labelledby="btn-buy">
+									<div class="wrapper">
+										<div class="row align-items-start m-0">
+											<div class="advanced-search-left">
+												<div class="row align-item-center">
+													<div class="button-group">
+														<p>Radius</p>
+														<select class="custom-select">
+															<option selected>none</option>
+															<option value="1">5 km</option>
+															<option value="2">10 km</option>
+															<option value="3">15 km</option>
+														</select>
+													</div>
+													<div class="button-group type-2">
+														<p>Type</p>
+														<button class="btn btn-type-2" type="button" data-toggle="collapse" href="#type-2" role="button" aria-expanded="false" aria-controls="type-2">
+															all
+															<i class="fas fa-caret-down"></i>
+														</button>
+														<div id="type-2" class="collapse">
+															<div class="custom-control custom-checkbox">
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck23" />
+																	<label class="custom-control-label" for="customCheck23">Apartment</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck24" />
+																	<label class="custom-control-label" for="customCheck24">Roof flat</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck25" />
+																	<label class="custom-control-label" for="customCheck25">Terrace flat</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck26" />
+																	<label class="custom-control-label" for="customCheck26">Mansard</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck27" />
+																	<label class="custom-control-label" for="customCheck27">Bifamiliar house</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck28" />
+																	<label class="custom-control-label" for="customCheck28">Farm house</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck29" />
+																	<label class="custom-control-label" for="customCheck29">Chalet</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck30" />
+																	<label class="custom-control-label" for="customCheck30">Cellar compartment</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck31" />
+																	<label class="custom-control-label" for="customCheck31">Duplex</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck32" />
+																	<label class="custom-control-label" for="customCheck32">Studio</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck33" />
+																	<label class="custom-control-label" for="customCheck33">Bachelor flat</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck34" />
+																	<label class="custom-control-label" for="customCheck34">Single house</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck35" />
+																	<label class="custom-control-label" for="customCheck35">Terrace house</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck36" />
+																	<label class="custom-control-label" for="customCheck36">Cave house/earthen hoyse</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck37" />
+																	<label class="custom-control-label" for="customCheck37">Rustic house</label>
+																</div>
+																<div class="checkbox-div">
+																	<input type="checkbox" class="custom-control-input" id="customCheck38" />
+																	<label class="custom-control-label" for="customCheck38">Attic compartment</label>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="button-group space-2">
+														<p>Living space in m<sup>2</sup></p>
+														<button class="btn btn-space-2" type="button" data-toggle="collapse" href="#space-2" role="button" aria-expanded="false" aria-controls="space-2">
+															all
+															<i class="fas fa-caret-down"></i>
+														</button>
+														<div id="space-2" class="collapse">
+															<p>from</p>
+															<input type="number" class="input-group-text" />
+															<p>to</p>
+															<input type="number" class="input-group-text" />
+														</div>
+													</div>
+												</div>
+												<div class="row align-items-center">
+													<div class="button-group year-2">
+														<p>Year built</p>
+														<button class="btn btn-year-2" type="button" data-toggle="collapse" href="#year-2" role="button" aria-expanded="false" aria-controls="year-2">
+															all
+															<i class="fas fa-caret-down"></i>
+														</button>
+														<div id="year-2" class="collapse">
+															<p>from</p>
+															<input type="number" class="input-group-text" />
+															<p>to</p>
+															<input type="number" class="input-group-text" />
+														</div>
+													</div>
+													<div class="button-group">
+														<p>Floor</p>
+														<select class="custom-select">
+															<option selected>all</option>
+															<option value="1">on GF</option>
+															<option value="2">not on GF</option>
+														</select>
+													</div>
+													<div class="button-group">
+														<p>Available</p>
+														<select class="custom-select">
+															<option selected>all</option>
+															<option value="1">immediately</option>
+															<option value="2">in 1 month</option>
+															<option value="3">in 2 month</option>
+															<option value="4">in 3 month</option>
+															<option value="5">in 4 month</option>
+															<option value="6">in 5 month</option>
+															<option value="7">in 6 month</option>
+															<option value="8">in 7 month</option>
+															<option value="9">in 8 month</option>
+															<option value="10">in 9 month</option>
+															<option value="11">in 10 month</option>
+															<option value="12">in 11 month</option>
+															<option value="12">in 12 month</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="advanced-search-right">
+												<div class="button-group">
+													<p>Features</p>
+													<div class="custom-control custom-checkbox">
+														<div class="checkbox-div">
+															<input type="checkbox" class="custom-control-input" id="customCheck39" />
+															<label class="custom-control-label" for="customCheck39">
+																Balcony / Patio</label>
+														</div>
+														<div class="checkbox-div">
+															<input type="checkbox" class="custom-control-input" id="customCheck40" />
+															<label class="custom-control-label" for="customCheck40">
+																Pets allowed</label>
+														</div>
+														<div class="checkbox-div">
+															<input type="checkbox" class="custom-control-input" id="customCheck41" />
+															<label class="custom-control-label" for="customCheck41">Minergie</label>
+														</div>
+														<div class="checkbox-div">
+															<input type="checkbox" class="custom-control-input" id="customCheck42" />
+															<label class="custom-control-label" for="customCheck42">Elevator</label>
+														</div>
+														<div class="checkbox-div">
+															<input type="checkbox" class="custom-control-input" id="customCheck43" />
+															<label class="custom-control-label" for="customCheck43">Has wheelchair access</label>
+														</div>
+														<div class="checkbox-div">
+															<input type="checkbox" class="custom-control-input" id="customCheck44" />
+															<label class="custom-control-label" for="customCheck44">New bulding</label>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/2.jpg" alt="img/houses/2.jpg" />
-									</div>
-									<div class="details">
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">House</p>
-											<p class="price">$35.800K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/3.jpg" alt="img/houses/3.jpg" />
-									</div>
-									<div class="details">
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
-											<i class="far fa-star"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">House</p>
-											<p class="price">$112.000K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/4.jpg" alt="img/houses/4.jpg" />
-									</div>
-									<div class="details">
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">House</p>
-											<p class="price">$42.500K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
+							<button class="btn btn-reset-search">
+								Reset search
+							</button>
+						</div>
+					</div>
+					<ul class="nav nav-tabs" role="tablist">
+						<!-- Grid view start -->
+						<li class="nav-item">
+							<a id="gridView" class="nav-link active" data-toggle="tab" href="#grid" role="tab" aria-controls="grid" aria-selected="true" title="Grid view">
+								<i class="fas fa-th-large"></i>
+							</a>
+						</li>
+						<!-- Grid view end -->
+						<!-- Grid view start -->
+						<li class="nav-item">
+							<a id="listView" class="nav-link" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false" title="List view">
+								<i class="fas fa-list-ul"></i>
+							</a>
+						</li>
+						<!-- Grid view end -->
+					</ul>
+					<div class="tab-content">
+						<!-- GridItem start -->
+						<div id="grid" class="tab-pane fade show active" role="tabpanel" aria-labelledby="gridView">
+							<div class="gridItem">
+								<div class="row">
+									<div class="col-md-3">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/1.jpg" alt="img/houses/1.jpg" />
+											</div>
+											<div class="details">
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">House</p>
+													<p class="price">$2.300K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/5.jpg" alt="img/houses/5.jpg" />
-									</div>
-									<div class="details">
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">House</p>
-											<p class="price">$68.400K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/6.jpg" alt="img/houses/6.jpg" />
-									</div>
-									<div class="details">
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="far fa-star"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">Apartment</p>
-											<p class="price">$9.500K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
+									<div class="col-md-3">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/2.jpg" alt="img/houses/2.jpg" />
+											</div>
+											<div class="details">
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">House</p>
+													<p class="price">$35.800K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/7.jpg" alt="img/houses/7.jpg" />
-									</div>
-									<div class="details">
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">House</p>
-											<p class="price">$24.300K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/8.jpg" alt="img/houses/8.jpg" />
-									</div>
-									<div class="details">
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="far fa-star"></i>
-											<i class="far fa-star"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">House</p>
-											<p class="price">$88.000K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
+									<div class="col-md-3">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/3.jpg" alt="img/houses/3.jpg" />
+											</div>
+											<div class="details">
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+													<i class="far fa-star"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">House</p>
+													<p class="price">$112.000K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/9.jpg" alt="img/houses/9.jpg" />
-									</div>
-									<div class="details">
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">Apartment</p>
-											<p class="price">$55.500K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/10.jpg" alt="img/houses/10.jpg" />
-									</div>
-									<div class="details">
-										<div class="rating">
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
-											<i class="far fa-star"></i>
-											<i class="far fa-star"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">House</p>
-											<p class="price">$77.800K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
+									<div class="col-md-3">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/4.jpg" alt="img/houses/4.jpg" />
+											</div>
+											<div class="details">
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">House</p>
+													<p class="price">$42.500K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/11.jpg" alt="img/houses/11.jpg" />
+									<div class="col-md-3">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/5.jpg" alt="img/houses/5.jpg" />
+											</div>
+											<div class="details">
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">House</p>
+													<p class="price">$68.400K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
+										</div>
 									</div>
-									<div class="details">
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
-											<i class="far fa-star"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">Apartment</p>
-											<p class="price">$35.400K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
+									<div class="col-md-3">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/6.jpg" alt="img/houses/6.jpg" />
+											</div>
+											<div class="details">
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="far fa-star"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">Apartment</p>
+													<p class="price">$9.500K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/12.jpg" alt="img/houses/12.jpg" />
+									<div class="col-md-3">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/7.jpg" alt="img/houses/7.jpg" />
+											</div>
+											<div class="details">
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">House</p>
+													<p class="price">$24.300K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
+										</div>
 									</div>
-									<div class="details">
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
+									<div class="col-md-3">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/8.jpg" alt="img/houses/8.jpg" />
+											</div>
+											<div class="details">
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="far fa-star"></i>
+													<i class="far fa-star"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">House</p>
+													<p class="price">$88.000K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
 										</div>
-										<div class="name-price">
-											<p class="name">House</p>
-											<p class="price">$99.990K</p>
+									</div>
+									<div class="col-md-3">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/9.jpg" alt="img/houses/9.jpg" />
+											</div>
+											<div class="details">
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">Apartment</p>
+													<p class="price">$55.500K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
 										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
+									</div>
+									<div class="col-md-3">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/10.jpg" alt="img/houses/10.jpg" />
+											</div>
+											<div class="details">
+												<div class="rating">
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+													<i class="far fa-star"></i>
+													<i class="far fa-star"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">House</p>
+													<p class="price">$77.800K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/11.jpg" alt="img/houses/11.jpg" />
+											</div>
+											<div class="details">
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+													<i class="far fa-star"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">Apartment</p>
+													<p class="price">$35.400K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/12.jpg" alt="img/houses/12.jpg" />
+											</div>
+											<div class="details">
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">House</p>
+													<p class="price">$99.990K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<!-- GridItem end -->
-					<!-- GridList start -->
-					<div class="listItem">
-						<div class="row">
-							<div class="col-md-6">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/1.jpg" alt="img/houses/1.jpg" />
-									</div>
-									<div class="details">
-										<h4>Lorem ipsum</h4>
-										<h6><i class="fas fa-home mr-2"></i>135m<sup>2</sup></h6>
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">House</p>
-											<p class="price">$2.300K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/2.jpg" alt="img/houses/2.jpg" />
-									</div>
-									<div class="details">
-										<h4>Lorem ipsum</h4>
-										<h6><i class="fas fa-home mr-2"></i>250m<sup>2</sup></h6>
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">House</p>
-											<p class="price">$35.800K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
+						<!-- GridItem end -->
+						<!-- ListItem start -->
+						<div id="list" class="tab-pane fade" role="tabpanel" aria-labelledby="listView">
+							<div class="listItem">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/1.jpg" alt="img/houses/1.jpg" />
+											</div>
+											<div class="details">
+												<h4>Lorem ipsum</h4>
+												<h6><i class="fas fa-home mr-2"></i>135m<sup>2</sup></h6>
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">House</p>
+													<p class="price">$2.300K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/3.jpg" alt="img/houses/3.jpg" />
-									</div>
-									<div class="details">
-										<h4>Lorem ipsum</h4>
-										<h6><i class="fas fa-home mr-2"></i>55m<sup>2</sup></h6>
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">House</p>
-											<p class="price">$112.000K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/4.jpg" alt="img/houses/4.jpg" />
-									</div>
-									<div class="details">
-										<h4>Lorem ipsum</h4>
-										<h6><i class="fas fa-home mr-2"></i>90m<sup>2</sup></h6>
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">House</p>
-											<p class="price">$42.500K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
+									<div class="col-md-6">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/2.jpg" alt="img/houses/2.jpg" />
+											</div>
+											<div class="details">
+												<h4>Lorem ipsum</h4>
+												<h6><i class="fas fa-home mr-2"></i>250m<sup>2</sup></h6>
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">House</p>
+													<p class="price">$35.800K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/5.jpg" alt="img/houses/5.jpg" />
-									</div>
-									<div class="details">
-										<h4>Lorem ipsum</h4>
-										<h6><i class="fas fa-home mr-2"></i>87m<sup>2</sup></h6>
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">Apartment</p>
-											<p class="price">$68.400K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/6.jpg" alt="img/houses/6.jpg" />
-									</div>
-									<div class="details">
-										<h4>Lorem ipsum</h4>
-										<h6><i class="fas fa-home mr-2"></i>150m<sup>2</sup></h6>
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">House</p>
-											<p class="price">$9.500K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
+									<div class="col-md-6">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/3.jpg" alt="img/houses/3.jpg" />
+											</div>
+											<div class="details">
+												<h4>Lorem ipsum</h4>
+												<h6><i class="fas fa-home mr-2"></i>55m<sup>2</sup></h6>
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">House</p>
+													<p class="price">$112.000K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/7.jpg" alt="img/houses/7.jpg" />
-									</div>
-									<div class="details">
-										<h4>Lorem ipsum</h4>
-										<h6><i class="fas fa-home mr-2"></i>220m<sup>2</sup></h6>
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">House</p>
-											<p class="price">$24.300K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/8.jpg" alt="img/houses/8.jpg" />
-									</div>
-									<div class="details">
-										<h4>Lorem ipsum</h4>
-										<h6><i class="fas fa-home mr-2"></i>136m<sup>2</sup></h6>
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">House</p>
-											<p class="price">$88.000K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
+									<div class="col-md-6">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/4.jpg" alt="img/houses/4.jpg" />
+											</div>
+											<div class="details">
+												<h4>Lorem ipsum</h4>
+												<h6><i class="fas fa-home mr-2"></i>90m<sup>2</sup></h6>
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">House</p>
+													<p class="price">$42.500K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/9.jpg" alt="img/houses/9.jpg" />
-									</div>
-									<div class="details">
-										<h4>Lorem ipsum</h4>
-										<h6><i class="fas fa-home mr-2"></i>177m<sup>2</sup></h6>
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">Apartment</p>
-											<p class="price">$55.500K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/10.jpg" alt="img/houses/10.jpg" />
-									</div>
-									<div class="details">
-										<h4>Lorem ipsum</h4>
-										<h6><i class="fas fa-home mr-2"></i>88m<sup>2</sup></h6>
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">House</p>
-											<p class="price">$77.800K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
+									<div class="col-md-6">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/5.jpg" alt="img/houses/5.jpg" />
+											</div>
+											<div class="details">
+												<h4>Lorem ipsum</h4>
+												<h6><i class="fas fa-home mr-2"></i>87m<sup>2</sup></h6>
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">Apartment</p>
+													<p class="price">$68.400K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/11.jpg" alt="img/houses/11.jpg" />
+									<div class="col-md-6">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/6.jpg" alt="img/houses/6.jpg" />
+											</div>
+											<div class="details">
+												<h4>Lorem ipsum</h4>
+												<h6><i class="fas fa-home mr-2"></i>150m<sup>2</sup></h6>
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">House</p>
+													<p class="price">$9.500K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
+										</div>
 									</div>
-									<div class="details">
-										<h4>Lorem ipsum</h4>
-										<h6><i class="fas fa-home mr-2"></i>68m<sup>2</sup></h6>
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
-										</div>
-										<div class="name-price">
-											<p class="name">Apartment</p>
-											<p class="price">$35.400K</p>
-										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
+									<div class="col-md-6">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/7.jpg" alt="img/houses/7.jpg" />
+											</div>
+											<div class="details">
+												<h4>Lorem ipsum</h4>
+												<h6><i class="fas fa-home mr-2"></i>220m<sup>2</sup></h6>
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">House</p>
+													<p class="price">$24.300K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="item">
-									<div class="image">
-										<img src="img/houses/12.jpg" alt="img/houses/12.jpg" />
+									<div class="col-md-6">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/8.jpg" alt="img/houses/8.jpg" />
+											</div>
+											<div class="details">
+												<h4>Lorem ipsum</h4>
+												<h6><i class="fas fa-home mr-2"></i>136m<sup>2</sup></h6>
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">House</p>
+													<p class="price">$88.000K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
+										</div>
 									</div>
-									<div class="details">
-										<h4>Lorem ipsum</h4>
-										<h6><i class="fas fa-home mr-2"></i>140m<sup>2</sup></h6>
-										<div class="rating">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star-half-alt"></i>
-											<i class="far fa-star"></i>
+									<div class="col-md-6">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/9.jpg" alt="img/houses/9.jpg" />
+											</div>
+											<div class="details">
+												<h4>Lorem ipsum</h4>
+												<h6><i class="fas fa-home mr-2"></i>177m<sup>2</sup></h6>
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">Apartment</p>
+													<p class="price">$55.500K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
 										</div>
-										<div class="name-price">
-											<p class="name">House</p>
-											<p class="price">$99.990K</p>
+									</div>
+									<div class="col-md-6">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/10.jpg" alt="img/houses/10.jpg" />
+											</div>
+											<div class="details">
+												<h4>Lorem ipsum</h4>
+												<h6><i class="fas fa-home mr-2"></i>88m<sup>2</sup></h6>
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">House</p>
+													<p class="price">$77.800K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
 										</div>
-										<div class="buttons">
-											<button id="btn-detail" class="btn btn-primary">Detail</button>
-											<button id="btn-buy" class="btn btn-danger">Buy</button>
+									</div>
+									<div class="col-md-6">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/11.jpg" alt="img/houses/11.jpg" />
+											</div>
+											<div class="details">
+												<h4>Lorem ipsum</h4>
+												<h6><i class="fas fa-home mr-2"></i>68m<sup>2</sup></h6>
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">Apartment</p>
+													<p class="price">$35.400K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="item">
+											<div class="image">
+												<img src="img/houses/12.jpg" alt="img/houses/12.jpg" />
+											</div>
+											<div class="details">
+												<h4>Lorem ipsum</h4>
+												<h6><i class="fas fa-home mr-2"></i>140m<sup>2</sup></h6>
+												<div class="rating">
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star-half-alt"></i>
+													<i class="far fa-star"></i>
+												</div>
+												<div class="name-price">
+													<p class="name">House</p>
+													<p class="price">$99.990K</p>
+												</div>
+												<div class="buttons">
+													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-buy" class="btn btn-danger">Buy</button>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<!-- ListItem end -->
 					</div>
-					<!-- GridList end -->
 					<div class="text-center">
 						<button class="btn btn-property text-uppercase">View more property</button>
 					</div>
@@ -905,7 +1366,7 @@
 			<div id="footer-list">
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
 					<li class="nav-item">
-						<a class="nav-link active" id="list1-tab" data-toggle="tab" href="#list1" role="tab" aria-controls="list1" aria-selected="true">Real Estate For Sale</a>
+						<a class="nav-link active" id="list1-tab" data-toggle="tab" href="#list1" role="tab" aria-controls="list1" aria-selected="true">Real<b>Estate</b> For Sale</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" id="list2-tab" data-toggle="tab" href="#list2" role="tab" aria-controls="list2" aria-selected="false">Houses</a>
@@ -1310,28 +1771,201 @@
 					</div>
 				</div>
 			</div>
-			<div class="social text-right">
-				<a href="https://www.facebook.com/" target="_blank">
-					<i class="fab fa-facebook-f"></i>
-					<span class="tooltiptext">Facebook</span>
-				</a>
-				<a href="https://www.instagram.com/" target="_blank">
-					<i class="fab fa-instagram"></i>
-					<span class="tooltiptext">Instagram</span>
-				</a>
-				<a href="https://www.twitter.com/" target="_blank">
-					<i class="fab fa-twitter"></i>
-					<span class="tooltiptext">Twitter</span>
-				</a>
-				<a href="https://www.youtube.com/" target="_blank">
-					<i class="fab fa-youtube"></i>
-					<span class="tooltiptext">YouTube</span>
-				</a>
+			<div id="footer-content">
+				<div class="row">
+					<div class="col-md-3">
+						<h3>Real<b>Estate</b></h3>
+						<p>Nibh scriptorem ei pri, ei tation timeam nominati mei. Sit ex audire habemus, soleat fastidii deterruisset nam no. Graece admodum postulant cu sed, mel ei voluptua iracundia. Vis an platonem persecuti, at vel laoreet fuisset invenire.</p>
+						<h4 class="mt-4">Our <b>office</b></h4>
+						<ul class="about-us">
+							<li>
+								<i class="fas fa-home"></i>
+								<h6>Address:</h6>
+								<p>Mije Aleksica 7,</p>
+								<p>34 000 Kragujevac,</p>
+								<p>Serbia</p>
+							</li>
+							<li>
+								<i class="fas fa-phone"></i>
+								<h6>Phone:</h6>
+								<p>
+									<a href="callto:+381 (0) 34 20 70 98" title="Contact Us" target="_blank">
+										+381 (0) 34 20 70 98
+									</a>
+								</p>
+							</li>
+							<li>
+								<i class="fas fa-envelope"></i>
+								<h6>Email:</h6>
+								<p>
+									<a href="mailto:services@webtory.rs" title="Contact Us" target="blank">
+										services@webtory.rs
+									</a>
+								</p>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4>Latest <b>article</b></h4>
+						<ul class="article">
+							<li>
+								<a href="javascript:void(0)" class="img-thumb">
+									<img src="img/img-thumb/1.jpg" alt="img/img-thumb/1.jpg" />
+								</a>
+								<h6>
+									<a href="javascript:void(0)">Exerci intellegat te facete urbanitas no est</a>
+								</h6>
+								<p>
+									Nostrud disputationi sed in, nam ea altera deserunt. Veri malis constituam vel cu.
+								</p>
+							</li>
+							<li>
+								<a href="javascript:void(0)" class="img-thumb">
+									<img src="img/img-thumb/2.jpg" alt="img/img-thumb/2.jpg" />
+								</a>
+								<h6>
+									<a href="javascript:void(0)">Exerci intellegat te facete urbanitas no est</a>
+								</h6>
+								<p>
+									Nostrud disputationi sed in, nam ea altera deserunt. Veri malis constituam vel cu.
+								</p>
+							</li>
+							<li>
+								<a href="javascript:void(0)" class="img-thumb">
+									<img src="img/img-thumb/3.jpg" alt="img/img-thumb/3.jpg" />
+								</a>
+								<h6>
+									<a href="javascript:void(0)">Exerci intellegat te facete urbanitas no est</a>
+								</h6>
+								<p>
+									Nostrud disputationi sed in, nam ea altera deserunt. Veri malis constituam vel cu.
+								</p>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4>Our <b>gallery</b></h4>
+						<ul class="gallery">
+							<li>
+								<a href="javascript:void(0)">
+									<img src="img/gallery/1.jpg" alt="img/gallery/1.jpg" />
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">
+									<img src="img/gallery/2.jpg" alt="img/gallery/2.jpg" />
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">
+									<img src="img/gallery/3.jpg" alt="img/gallery/3.jpg" />
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">
+									<img src="img/gallery/4.jpg" alt="img/gallery/4.jpg" />
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">
+									<img src="img/gallery/5.jpg" alt="img/gallery/5.jpg" />
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">
+									<img src="img/gallery/6.jpg" alt="img/gallery/6.jpg" />
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">
+									<img src="img/gallery/7.jpg" alt="img/gallery/7.jpg" />
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">
+									<img src="img/gallery/8.jpg" alt="img/gallery/8.jpg" />
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">
+									<img src="img/gallery/9.jpg" alt="img/gallery/9.jpg" />
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">
+									<img src="img/gallery/10.jpg" alt="img/gallery/10.jpg" />
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">
+									<img src="img/gallery/11.jpg" alt="img/gallery/11.jpg" />
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">
+									<img src="img/gallery/12.jpg" alt="img/gallery/12.jpg" />
+								</a>
+							</li>
+						</ul>
+						<h4 class="mt-4">Our <b>location</b></h4>
+						<div id="map">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2870.0423515235943!2d20.921229615846908!3d43.999850379110924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475720ef828fad59%3A0x57cbe633ad7d23fd!2sMije+Aleksic%CC%81a%2C+Kragujevac!5e0!3m2!1sen!2srs!4v1538360362846" width="100%" height="auto" frameborder="0" style="border:0" allowfullscreen></iframe>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="subscribe">
+							<h4>Subscribe <b>newsletter</b></h4>
+							<input type="text" class="input-subscribe" placeholder="Enter your email address..." />
+							<div class="input-group mb-3">
+								<button class="btn btn-subscribe" type="button">Subscribe now</button>
+								<div class="input-group-append">
+									<span class="input-group-text">
+										<img src="img/send.png" alt="img/send.png" />
+									</span>
+								</div>
+							</div>
+						</div>
+						<h4 class="mt-4">Social <b>network</b></h4>
+						<div class="social">
+							<a href="https://www.facebook.com/" target="_blank">
+								<i class="fab fa-facebook-f"></i>
+								<span class="tooltiptext">Facebook</span>
+							</a>
+							<a href="https://www.instagram.com/" target="_blank">
+								<i class="fab fa-instagram"></i>
+								<span class="tooltiptext">Instagram</span>
+							</a>
+							<a href="https://www.twitter.com/" target="_blank">
+								<i class="fab fa-twitter"></i>
+								<span class="tooltiptext">Twitter</span>
+							</a>
+							<a href="https://www.youtube.com/" target="_blank">
+								<i class="fab fa-youtube"></i>
+								<span class="tooltiptext">YouTube</span>
+							</a>
+						</div>
+						<h4 class="mt-4">Explore <b>link</b></h4>
+						<ul class="explore-link">
+							<li>
+								<a href="javascript:void(0)">Home</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">About Us</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Work</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">House</a>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
-			<div class="footer-bottom text-center">
-				<p class="mb-0">
-					© 2018 <a href="http://www.webtory.rs/" target="_blank">Webtory</a> - All Rights Reserved
-				</p>
+		</div>
+		<div class="footer-bottom">
+			<div class="container">
+				© 2018 <a href="http://www.webtory.rs/" target="_blank"><b>Webtory</b></a> - All Rights Reserved
 			</div>
 		</div>
 		<!--
