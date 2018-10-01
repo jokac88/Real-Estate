@@ -1630,6 +1630,16 @@ footer {
 			}
 		}
 
+		#map {
+			iframe {
+				transition: all $transition;
+
+				&:hover {
+					opacity: .9;
+				}
+			}
+		}
+
 		.subscribe {
 
 			.input-subscribe {
