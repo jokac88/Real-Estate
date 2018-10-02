@@ -366,6 +366,7 @@ header {
 	left: 0;
 	transform: translate(0, -50%);
 	z-index: 999;
+	transition: all $transition;
 
 	.social {
 		transition: all $transition;
@@ -461,6 +462,43 @@ header {
 				left: 50%;
 				transform: translate(-50%, -50%);
 				transition: all $transition;
+			}
+		}
+	}
+
+	&.active {
+		opacity: 1;
+		visibility: visible;
+
+		.social {
+			width: 35px;
+			height: 35px;
+
+			&.facebook {
+				background-color: #4267B2;
+			}
+
+			&.instagram {
+				background: #d6249f;
+			}
+
+			&.twitter {
+				background-color: #1DA1F2;
+			}
+
+			&.youtube {
+				background-color: #FF0000;
+			}
+
+			&.chat {
+				background-color: $green;
+			}
+
+			a {
+				svg {
+					color: $white;
+					font-size: 18px;
+				}
 			}
 		}
 	}
@@ -2089,7 +2127,8 @@ footer {
 @media only screen and (min-width: 320px) and (max-width: 767px) {
 
 	#sticky-social-bar {
-		display: none;
+		opacity: 0;
+		visibility: hidden;
 	}
 
 	#mobile-nav {

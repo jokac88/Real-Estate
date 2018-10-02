@@ -24,6 +24,18 @@ $(document).ready(function () {
 	}
 });
 
+$(document).ready(function () {
+	$(window).scroll(function () {
+		var scroll = $(window).scrollTop();
+
+		if (scroll >= 500) {
+			$("#sticky-social-bar").addClass("active");
+		} else {
+			$("#sticky-social-bar").removeClass("active");
+		}
+	});
+});
+
 //function loader() {
 //	myVar = setTimeout(showPage, 800);
 //}
