@@ -27,8 +27,8 @@ $(document).ready(function () {
 $(document).ready(function () {
 	$(window).scroll(function () {
 		var scroll = $(window).scrollTop();
-
-		if (scroll >= 500) {
+		var media = window.matchMedia("only screen and (min-width: 320px) and (max-width: 767px)");
+		if (media.matches && scroll >= 500) {
 			$("#sticky-social-bar").addClass("active");
 		} else {
 			$("#sticky-social-bar").removeClass("active");
