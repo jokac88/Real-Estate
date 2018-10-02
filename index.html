@@ -26,7 +26,7 @@
 	<!-- CSS and Bootstrap 4 links end -->
 </head>
 
-<body data-spy="scroll" data-target="#navbar" data-offset="0">
+<body data-spy="scroll" data-target="#nav-bar" data-offset="0">
 	<!-- Loader start -->
 	<!--	<div id="loader"></div>-->
 	<!-- Loader end -->
@@ -41,18 +41,72 @@
 	<!-- Order now end -->
 	<!-- App start -->
 	<div id="app">
+		<!-- Top menu start -->
+		<div id="top-menu" class="d-md-none">
+			<!-- Sidenav start -->
+			<div id="sidenav" class="hamburger hamburger--spin d-md-none" data-toggle="collapse" role="button" aria-expanded="false">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</div>
+			<!-- Sidenav end -->
+		</div>
+		<!-- Top menu end -->
+		<!-- mySidenav start -->
+		<div id="mySidenav" class="sidenav d-md-none">
+			<h2>Real<span>Estate</span></h2>
+			<nav id="nav-bar" class="navbar">
+				<ul id="mobile-nav" class="nav nav-pills">
+					<li>
+						<a class="nav-link" href="#header">
+							Home
+						</a>
+					</li>
+					<li>
+						<a class="nav-link" href="#about-us">
+							About<span>Us</span>
+						</a>
+					</li>
+					<li>
+						<a class="nav-link" href="#work">
+							Work
+						</a>
+					</li>
+					<li>
+						<a class="nav-link" href="#houses">
+							Houses
+						</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a class="nav-link font-weight-bold" href="#login">
+							Log<span>in</span>
+						</a>
+					</li>
+					<li>
+						<a class="nav-link" href="javascript:void(0)">
+							Register
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<!-- mySidenav end -->
+		<!-- Close nav start -->
+		<div id="close-nav" class="d-md-none"></div>
+		<!-- Close nav end -->
 		<!-- Header start -->
 		<header id="header">
 			<!-- Navbar start -->
-			<div id="navbar" class=" d-none d-md-block fixed-top">
+			<div id="navbar" class="fixed-top d-none d-md-block ">
 				<div class="container-fluid">
-					<div class="row align-items-center">
-						<div class="col-md-4">
+					<div class="row align-items-md-center">
+						<div class="col-md-3">
 							<h3 class="mb-0">Real<b>Estate</b></h3>
 						</div>
-						<div class="col-md-8">
-							<nav id="nav-bar" class="navbar float-right pr-md-0">
-								<ul id="first-nav" class="nav nav-pills">
+						<div class="col-md-9">
+							<nav id="nav-bar" class="navbar float-md-right pr-md-0">
+								<ul id="desktop-nav" class="nav nav-pills">
 									<li class="nav-item">
 										<a class="nav-link" href="#header">Home</a>
 									</li>
@@ -196,7 +250,7 @@
 			<!-- About Us start -->
 			<div id="about-us">
 				<div class="container">
-					<div class="row align-items-center">
+					<div class="row align-items-md-center">
 						<div class="col-md-6">
 							<div style="padding:56.25% 0 0 0;position:relative;">
 								<iframe src="https://player.vimeo.com/video/17882714?byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -252,11 +306,11 @@
 			<!-- Work end -->
 			<!-- Houses start -->
 			<div id="houses">
-				<div class="container p-0">
+				<div class="container p-md-0">
 					<div class="main-search">
 						<div class="wrapper">
 							<h3 class="text-center">Real<b>Estate</b></h3>
-							<div class="row align-items-center">
+							<div class="row align-items-md-center">
 								<div class="button-group rent-buy">
 									<p>Search in</p>
 									<nav>
@@ -266,14 +320,14 @@
 										</div>
 									</nav>
 								</div>
-								<div class="button-group">
+								<div class="button-group location">
 									<p>Search where</p>
 									<div class="location">
 										<input type="text" class="search-input" placeholder="Cities, regions, ZIP, country" />
 										<img class="icon-target" src="img/target.png" alt="img/target.png"></i>
 									</div>
 								</div>
-								<div class="button-group">
+								<div class="button-group category">
 									<p>Category</p>
 									<select class="custom-select">
 										<option selected>Apartment &amp; house</option>
@@ -313,7 +367,7 @@
 										<input type="number" class="input-group-text" />
 									</div>
 								</div>
-								<div class="button-group">
+								<div class="button-group search">
 									<button class="btn btn-search">Search</button>
 								</div>
 							</div>
@@ -326,9 +380,9 @@
 							<div class="tab-content">
 								<div id="rent-div" class="tab-pane fade show active" role="tabpanel" aria-labelledby="btn-rent">
 									<div class="wrapper">
-										<div class="row align-items-start m-0">
+										<div class="row align-items-md-start m-0">
 											<div class="advanced-search-left">
-												<div class="row align-item-center">
+												<div class="row align-items-center">
 													<div class="button-group">
 														<p>Radius</p>
 														<select class="custom-select">
@@ -427,7 +481,7 @@
 														</div>
 													</div>
 												</div>
-												<div class="row align-items-center">
+												<div class="row align-items-md-center">
 													<div class="button-group year">
 														<p>Year built</p>
 														<button class="btn btn-year" type="button" data-toggle="collapse" href="#year" role="button" aria-expanded="false" aria-controls="year">
@@ -508,9 +562,9 @@
 								</div>
 								<div id="buy-div" class="tab-pane fade" role="tabpanel" aria-labelledby="btn-buy">
 									<div class="wrapper">
-										<div class="row align-items-start m-0">
+										<div class="row align-items-md-start m-0">
 											<div class="advanced-search-left">
-												<div class="row align-item-center">
+												<div class="row align-items-center">
 													<div class="button-group">
 														<p>Radius</p>
 														<select class="custom-select">
@@ -609,7 +663,7 @@
 														</div>
 													</div>
 												</div>
-												<div class="row align-items-center">
+												<div class="row align-items-md-center">
 													<div class="button-group year-2">
 														<p>Year built</p>
 														<button class="btn btn-year-2" type="button" data-toggle="collapse" href="#year-2" role="button" aria-expanded="false" aria-controls="year-2">
@@ -705,7 +759,7 @@
 						<!-- Grid view start -->
 						<li class="nav-item">
 							<a id="listView" class="nav-link" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false" title="List view">
-								<i class="fas fa-list-ul"></i>
+								<i class="fas fa-th-list"></i>
 							</a>
 						</li>
 						<!-- Grid view end -->
@@ -715,7 +769,7 @@
 						<div id="grid" class="tab-pane fade show active" role="tabpanel" aria-labelledby="gridView">
 							<div class="gridItem">
 								<div class="row">
-									<div class="col-md-3">
+									<div class="col-md-4 col-lg-3">
 										<div class="item">
 											<div class="image">
 												<img src="img/houses/1.jpg" alt="img/houses/1.jpg" />
@@ -733,13 +787,13 @@
 													<p class="price">$2.300K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-4 col-lg-3">
 										<div class="item">
 											<div class="image">
 												<img src="img/houses/2.jpg" alt="img/houses/2.jpg" />
@@ -757,13 +811,13 @@
 													<p class="price">$35.800K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-4 col-lg-3">
 										<div class="item">
 											<div class="image">
 												<img src="img/houses/3.jpg" alt="img/houses/3.jpg" />
@@ -781,13 +835,13 @@
 													<p class="price">$112.000K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-4 col-lg-3">
 										<div class="item">
 											<div class="image">
 												<img src="img/houses/4.jpg" alt="img/houses/4.jpg" />
@@ -805,13 +859,13 @@
 													<p class="price">$42.500K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-4 col-lg-3">
 										<div class="item">
 											<div class="image">
 												<img src="img/houses/5.jpg" alt="img/houses/5.jpg" />
@@ -829,13 +883,13 @@
 													<p class="price">$68.400K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-4 col-lg-3">
 										<div class="item">
 											<div class="image">
 												<img src="img/houses/6.jpg" alt="img/houses/6.jpg" />
@@ -853,13 +907,13 @@
 													<p class="price">$9.500K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-4 col-lg-3">
 										<div class="item">
 											<div class="image">
 												<img src="img/houses/7.jpg" alt="img/houses/7.jpg" />
@@ -877,13 +931,13 @@
 													<p class="price">$24.300K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-4 col-lg-3">
 										<div class="item">
 											<div class="image">
 												<img src="img/houses/8.jpg" alt="img/houses/8.jpg" />
@@ -901,13 +955,13 @@
 													<p class="price">$88.000K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-4 col-lg-3">
 										<div class="item">
 											<div class="image">
 												<img src="img/houses/9.jpg" alt="img/houses/9.jpg" />
@@ -925,13 +979,13 @@
 													<p class="price">$55.500K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-4 col-lg-3">
 										<div class="item">
 											<div class="image">
 												<img src="img/houses/10.jpg" alt="img/houses/10.jpg" />
@@ -949,13 +1003,13 @@
 													<p class="price">$77.800K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-4 col-lg-3">
 										<div class="item">
 											<div class="image">
 												<img src="img/houses/11.jpg" alt="img/houses/11.jpg" />
@@ -973,13 +1027,13 @@
 													<p class="price">$35.400K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-4 col-lg-3">
 										<div class="item">
 											<div class="image">
 												<img src="img/houses/12.jpg" alt="img/houses/12.jpg" />
@@ -997,7 +1051,7 @@
 													<p class="price">$99.990K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
@@ -1031,7 +1085,7 @@
 													<p class="price">$2.300K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
@@ -1057,7 +1111,7 @@
 													<p class="price">$35.800K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
@@ -1083,7 +1137,7 @@
 													<p class="price">$112.000K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
@@ -1109,7 +1163,7 @@
 													<p class="price">$42.500K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
@@ -1135,7 +1189,7 @@
 													<p class="price">$68.400K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
@@ -1161,7 +1215,7 @@
 													<p class="price">$9.500K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
@@ -1187,7 +1241,7 @@
 													<p class="price">$24.300K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
@@ -1213,7 +1267,7 @@
 													<p class="price">$88.000K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
@@ -1239,7 +1293,7 @@
 													<p class="price">$55.500K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
@@ -1265,7 +1319,7 @@
 													<p class="price">$77.800K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
@@ -1291,7 +1345,7 @@
 													<p class="price">$35.400K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
@@ -1317,7 +1371,7 @@
 													<p class="price">$99.990K</p>
 												</div>
 												<div class="buttons">
-													<button id="btn-detail" class="btn btn-primary">Detail</button>
+													<button id="btn-detail" class="btn btn-detail">Detail</button>
 													<button id="btn-buy" class="btn btn-danger">Buy</button>
 												</div>
 											</div>
@@ -1332,7 +1386,7 @@
 						<button class="btn btn-property text-uppercase">View more property</button>
 					</div>
 					<nav>
-						<ul class="pagination justify-content-end">
+						<ul class="pagination justify-content-center justify-content-md-end">
 							<li class="page-item">
 								<a class="page-link" href="javasript:void(0)" tabindex="-1">Previous</a>
 							</li>
@@ -1363,6 +1417,7 @@
 	<!-- Footer start -->
 	<footer>
 		<div class="container">
+			<!--
 			<div id="footer-list">
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
 					<li class="nav-item">
@@ -1771,9 +1826,10 @@
 					</div>
 				</div>
 			</div>
+-->
 			<div id="footer-content">
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-4 col-lg-3">
 						<h2>Real<b>Estate</b></h2>
 						<p>Nibh scriptorem ei pri, ei tation timeam nominati mei. Sit ex audire habemus, soleat fastidii deterruisset nam no. Graece admodum postulant cu sed, mel ei voluptua iracundia. Vis an platonem persecuti, at vel laoreet fuisset invenire.</p>
 						<h4 class="mt-4">Our <b>office</b></h4>
@@ -1805,7 +1861,7 @@
 							</li>
 						</ul>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-4 col-lg-3">
 						<h3>Latest <b>article</b></h3>
 						<ul class="article">
 							<li>
@@ -1843,7 +1899,7 @@
 							</li>
 						</ul>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-4 col-lg-3">
 						<h3>Our <b>gallery</b></h3>
 						<ul class="gallery">
 							<li>
@@ -1912,53 +1968,61 @@
 							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2870.0423515235943!2d20.921229615846908!3d43.999850379110924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475720ef828fad59%3A0x57cbe633ad7d23fd!2sMije+Aleksic%CC%81a%2C+Kragujevac!5e0!3m2!1sen!2srs!4v1538360362846" width="100%" height="auto" frameborder="0" style="border:0" allowfullscreen></iframe>
 						</div>
 					</div>
-					<div class="col-md-3">
-						<div class="subscribe">
-							<h3>Subscribe <b>newsletter</b></h3>
-							<input type="text" class="input-subscribe" placeholder="Enter your email address..." />
-							<div class="input-group mb-3">
-								<button class="btn btn-subscribe" type="button">Subscribe now</button>
-								<div class="input-group-append">
-									<span class="input-group-text">
-										<img src="img/send.png" alt="img/send.png" />
-									</span>
+					<div class="col-md-12 col-lg-3">
+						<div class="row">
+							<div class="col-md-4 col-lg-12 order-md-2 order-lg-0">
+								<div class="subscribe">
+									<h3>Subscribe <b>newsletter</b></h3>
+									<input type="text" class="input-subscribe" placeholder="Enter your email address..." />
+									<div class="input-group mb-3">
+										<button class="btn btn-subscribe" type="button">Subscribe now</button>
+										<div class="input-group-append">
+											<span class="input-group-text">
+												<img src="img/send.png" alt="img/send.png" />
+											</span>
+										</div>
+									</div>
 								</div>
 							</div>
+							<div class="col-md-4 col-lg-12 order-md-0 order-lg-1">
+								<h3 class="mt-4 mt-md-0 mt-lg-4">Social <b>network</b></h3>
+								<div class="social">
+									<a href="https://www.facebook.com/" target="_blank">
+										<i class="fab fa-facebook-f"></i>
+										<span class="tooltiptext">Facebook</span>
+									</a>
+									<a href="https://www.instagram.com/" target="_blank">
+										<i class="fab fa-instagram"></i>
+										<span class="tooltiptext">Instagram</span>
+									</a>
+									<a href="https://www.twitter.com/" target="_blank">
+										<i class="fab fa-twitter"></i>
+										<span class="tooltiptext">Twitter</span>
+									</a>
+									<a href="https://www.youtube.com/" target="_blank">
+										<i class="fab fa-youtube"></i>
+										<span class="tooltiptext">YouTube</span>
+									</a>
+								</div>
+							</div>
+							<div class="col-md-4 col-lg-12 mt-4 mt-md-0 order-md-1 order-lg-2">
+								<h3 class="mt-lg-4">Explore <b>link</b></h3>
+								<ul class="explore-link">
+									<li>
+										<a href="javascript:void(0)">Home</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)">About Us</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)">Work</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)">House</a>
+									</li>
+								</ul>
+							</div>
 						</div>
-						<h3 class="mt-4">Social <b>network</b></h3>
-						<div class="social">
-							<a href="https://www.facebook.com/" target="_blank">
-								<i class="fab fa-facebook-f"></i>
-								<span class="tooltiptext">Facebook</span>
-							</a>
-							<a href="https://www.instagram.com/" target="_blank">
-								<i class="fab fa-instagram"></i>
-								<span class="tooltiptext">Instagram</span>
-							</a>
-							<a href="https://www.twitter.com/" target="_blank">
-								<i class="fab fa-twitter"></i>
-								<span class="tooltiptext">Twitter</span>
-							</a>
-							<a href="https://www.youtube.com/" target="_blank">
-								<i class="fab fa-youtube"></i>
-								<span class="tooltiptext">YouTube</span>
-							</a>
-						</div>
-						<h4 class="mt-4">Explore <b>link</b></h4>
-						<ul class="explore-link">
-							<li>
-								<a href="javascript:void(0)">Home</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)">About Us</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)">Work</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)">House</a>
-							</li>
-						</ul>
 					</div>
 				</div>
 			</div>

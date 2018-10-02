@@ -8,6 +8,7 @@ $white-f2: #f2f2f2;
 $green: #8cc53f;
 $green-active: #6d9d2f;
 $gradient-green: linear-gradient(to right, $green-active 10%, $green 100%);
+$gradient-green-2: linear-gradient(to right, $green 10%, $green-active 100%);
 $yellow: #ffce40;
 $gray: #3e4444;
 $gray-2: #d9d9d9;
@@ -59,6 +60,7 @@ input {
 
 select {
 	border: none !important;
+	cursor: pointer;
 }
 
 img {
@@ -137,41 +139,216 @@ svg {
 ----------------------------*/
 
 /*----------------------------
-    Header start
+    top-menu start
 ----------------------------*/
 
-header nav ul {
-	li {
-		border-radius: 3px;
+#top-menu {
+	background-image: $gradient-green;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 55px;
+	z-index: 999;
+	box-shadow: 0 0 1px 1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1);
 
-		a {
+	#sidenav {
+		position: absolute;
+		right: 15px;
+		top: 15px;
+
+		&.hamburger {
+			padding: 0;
+
+			&:hover {
+				opacity: 1;
+			}
+
+			.hamburger-box {
+				height: 25px;
+			}
+
+			.hamburger-inner,
+			.hamburger-inner::before,
+			.hamburger-inner::after {
+				background-color: #ffffff;
+			}
+		}
+	}
+}
+
+/*----------------------------
+    top-menu end
+----------------------------*/
+
+/*----------------------------
+    mySidenav end
+----------------------------*/
+
+#mySidenav {
+	&.sidenav {
+		position: fixed;
+		z-index: 9999;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 100vh;
+		background-color: $green-active;
+		overflow: auto;
+		transition: all .3s linear;
+		-webkit-box-shadow: -5px 0px 20px -5px rgba(0, 0, 0, 0.75);
+		-moz-box-shadow: -5px 0px 20px -5px rgba(0, 0, 0, 0.75);
+		box-shadow: -5px 0px 20px -5px rgba(0, 0, 0, 0.75);
+
+		h2 {
+			margin: 10px 0 0 15px;
+
+			span {
+				font-weight: bold;
+			}
+		}
+
+		ul {
+			padding: 0;
 			margin: 0;
-			margin-right: 5px;
-			color: $white;
-			font-size: 15px;
+
+			li {
+				list-style: none;
+
+				&.divider {
+					height: 2px;
+					background-color: $white;
+				}
+
+				a {
+					text-transform: uppercase;
+					padding: 5px 0 4px 20px;
+					display: block;
+					margin: 5px 0;
+					font-size: 20px;
+					color: #FFFFFF;
+
+					&.active {
+						background-image: $gradient-green-2;
+					}
+
+					span {
+						margin-left: 5px;
+					}
+				}
+			}
 		}
 
-		a:hover {
-			background-color: #6d9d2f;
-			box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, .2);
-		}
-
-		.login {
-			text-transform: uppercase;
-			font-weight: bold;
-			margin: 0;
-			margin-left: 5px;
-		}
-
-		.register {
-			@extend .login;
-			background-color: #6d9d2f;
-			border-radius: 3px;
+		&.active {
+			width: 80vw;
 		}
 	}
 
-	.divider {
-		border-left: 1px solid $white;
+	.profile {
+		display: inline-block;
+
+		&.linkedid {
+			position: absolute;
+			left: 45%;
+			transform: translate(-45%, 0);
+		}
+
+		&.github {
+			position: absolute;
+			left: 60%;
+			transform: translate(-60%, 0);
+		}
+
+		img {
+			width: 25px;
+			margin-top: 15px;
+		}
+	}
+}
+
+/*----------------------------
+    mySidenav end
+----------------------------*/
+
+/*----------------------------
+    Close-nav start
+----------------------------*/
+
+#close-nav {
+	position: fixed;
+	top: 55px;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 100vh;
+	z-index: 9998;
+
+	&.active {
+		width: 100vw;
+		animation: .3s backgroundColor forwards;
+
+		@keyframes backgroundColor {
+			0% {
+				background-color: rgba(0, 0, 0, .0);
+			}
+
+			50% {
+				background-color: rgba(0, 0, 0, .3);
+			}
+
+			100% {
+				background-color: rgba(0, 0, 0, .5);
+			}
+		}
+	}
+}
+
+/*----------------------------
+    Close-nav end
+----------------------------*/
+
+/*----------------------------
+    Header start
+----------------------------*/
+
+header {
+
+	nav {
+		ul {
+			li {
+				border-radius: 3px;
+
+				a {
+					margin: 0;
+					margin-right: 5px;
+					color: $white;
+					font-size: 15px;
+				}
+
+				a:hover {
+					background-color: #6d9d2f;
+					box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, .2);
+				}
+
+				.login {
+					text-transform: uppercase;
+					font-weight: bold;
+					margin: 0;
+					margin-left: 5px;
+				}
+
+				.register {
+					@extend .login;
+					background-color: #6d9d2f;
+					border-radius: 3px;
+				}
+			}
+
+			.divider {
+				width: 2px;
+				background-color: $white;
+			}
+		}
 	}
 }
 
@@ -188,6 +365,7 @@ header nav ul {
 	top: 50%;
 	left: 0;
 	transform: translate(0, -50%);
+	z-index: 999;
 
 	.social {
 		transition: all $transition;
@@ -313,10 +491,6 @@ header nav ul {
 		100% {
 			transform: translateY(0);
 		}
-	}
-
-	#nav-bar .nav-link {
-		cursor: pointer;
 	}
 
 	.nav-pills .nav-link.active,
@@ -653,7 +827,7 @@ header nav ul {
 ----------------------------*/
 
 #work {
-	padding: 80px 0;
+	padding: 100px 0;
 	color: $white;
 	background: #222534 url('../img/pattern.png');
 
@@ -806,7 +980,7 @@ header nav ul {
 ----------------------------*/
 
 #houses {
-	padding: 100px 0;
+	padding: 50px 0;
 
 	.main-search {
 		background-color: $gray-2;
@@ -815,6 +989,7 @@ header nav ul {
 		position: relative;
 		border-top-left-radius: 3px;
 		border-top-right-radius: 3px;
+		margin-bottom: 70px;
 
 		.wrapper {
 			padding: 20px;
@@ -925,7 +1100,7 @@ header nav ul {
 
 			#price,
 			#rooms {
-				padding: 0 15px;
+				padding: 0 11px;
 				position: absolute;
 				background-color: #f0f0f0;
 				z-index: 1;
@@ -935,7 +1110,7 @@ header nav ul {
 				width: 120px;
 
 				p {
-					margin-top: 10px;
+					margin-top: 5px;
 				}
 
 				input {
@@ -958,7 +1133,7 @@ header nav ul {
 			.btn-search {
 				min-width: 140px;
 				position: absolute;
-				top: -6px;
+				top: -6.5px;
 				font-size: 16px;
 				padding: 6px 10px;
 				background-color: $green;
@@ -1069,7 +1244,7 @@ header nav ul {
 						#space-2,
 						#year,
 						#year-2 {
-							padding: 0 15px;
+							padding: 0 11px;
 							position: absolute;
 							background-color: #f0f0f0;
 							z-index: 1;
@@ -1079,7 +1254,7 @@ header nav ul {
 							width: 150px;
 
 							p {
-								margin-top: 10px;
+								margin-top: 5px;
 							}
 
 							input {
@@ -1107,7 +1282,7 @@ header nav ul {
 
 							.custom-control {
 								padding: 15px;
-								padding-left: 40px;
+								padding-left: 35px;
 
 								.custom-control-input:focus ~ .custom-control-label::before {
 									box-shadow: none;
@@ -1216,7 +1391,7 @@ header nav ul {
 			}
 
 			.nav-link {
-				padding: 10px 15px;
+				padding: 8px 10px;
 				border: none;
 				color: #404040;
 				border-radius: 3px;
@@ -1234,7 +1409,7 @@ header nav ul {
 				}
 
 				svg {
-					font-size: 25px;
+					font-size: 22px;
 				}
 			}
 		}
@@ -1297,7 +1472,6 @@ header nav ul {
 			}
 
 			.name {
-
 				&:hover {
 					cursor: pointer;
 					text-decoration: underline;
@@ -1311,6 +1485,16 @@ header nav ul {
 			}
 
 			.buttons {
+				.btn-detail {
+					background-color: $green;
+					color: $white;
+					transition: all $transition;
+
+					&:hover {
+						background-color: $green-active;
+					}
+				}
+
 				.btn {
 					width: 47%;
 					min-width: 100px;
@@ -1390,7 +1574,7 @@ header nav ul {
 	.btn-property {
 		margin-bottom: 30px;
 		width: 50%;
-		padding: 9px 0 8px;
+		padding: 9px 12px 8px;
 		font-size: 16px;
 		background-color: $green;
 		color: $white;
@@ -1398,6 +1582,33 @@ header nav ul {
 
 		&:hover {
 			background-color: $green-active;
+		}
+	}
+
+	.pagination {
+		li {
+			font-size: 15px;
+
+			&.active {
+				a {
+					background-color: $green-active;
+					border-color: $green-active;
+					transition: all $transition;
+					color: $white;
+				}
+			}
+
+			a {
+				color: #000000;
+				transition: all $transition;
+
+			}
+
+			&:not(.active):hover a {
+				background-color: $green;
+				border-color: $green;
+				color: $white;
+			}
 		}
 	}
 }
@@ -1411,7 +1622,7 @@ header nav ul {
 ----------------------------*/
 
 footer {
-	padding: 20px 0 0;
+	padding-top: 20px;
 	background-color: $gray;
 
 	#footer-list {
@@ -1444,6 +1655,7 @@ footer {
 					letter-spacing: 1px;
 					padding: 12px 0;
 					text-align: center;
+					transition: color $transition;
 
 					&:hover {
 						border: none;
@@ -1452,7 +1664,7 @@ footer {
 
 					&.active {
 						background-color: transparent;
-						border-bottom: 3px solid #a6a6a6;
+						border-bottom: 3px solid $green;
 						color: $white;
 					}
 				}
@@ -1476,10 +1688,11 @@ footer {
 
 					a {
 						color: #cbcfd4;
-					}
+						transition: all $transition;
 
-					:hover {
-						color: $white;
+						&:hover {
+							color: $green;
+						}
 					}
 				}
 			}
@@ -1553,6 +1766,7 @@ footer {
 
 				&:last-child {
 					border-bottom: none;
+					margin-bottom: 0;
 				}
 
 				.img-thumb {
@@ -1630,15 +1844,7 @@ footer {
 			}
 		}
 
-		#map {
-			iframe {
-				transition: all $transition;
-
-				&:hover {
-					opacity: .9;
-				}
-			}
-		}
+		#map {}
 
 		.subscribe {
 
@@ -1685,6 +1891,10 @@ footer {
 						border: none;
 						border-left: 1px solid $white;
 						background-color: transparent;
+
+						img {
+							width: 18px;
+						}
 					}
 				}
 			}
@@ -1877,6 +2087,261 @@ footer {
 ----------------------------*/
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+
+	#sticky-social-bar {
+		display: none;
+	}
+
+	#mobile-nav {
+		&.nav.nav-pills {
+			padding: 0;
+
+			li {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+
+	header {
+		padding-top: 55px;
+
+		#search {
+			min-height: 350px;
+
+			#search-bar {
+				h2 {
+					font-size: 26px;
+				}
+
+				h3 {
+					font-size: 16px;
+				}
+
+				.form-control {
+					font-size: 12px;
+				}
+
+				svg {
+					font-size: 16px;
+				}
+
+				.search {
+					font-size: 14px;
+				}
+
+				.btn-rent,
+				.btn-sell {
+					left: 0;
+					font-size: 14px;
+					padding: 8px 5px;
+					margin: 10px 0;
+
+					&.active,
+					&:not(.active):hover {
+						&::before {
+							bottom: 70%;
+							transform: translate(-50%, -70%);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#about-us {
+		padding: 50px 0;
+
+		h4 {
+			margin-top: 30px;
+		}
+	}
+
+	#work {
+		padding: 50px 0;
+
+		.buy {
+			font-size: 22px;
+			margin-bottom: 20px;
+		}
+
+		.find,
+		.call,
+		.deal {
+
+			&::before,
+			&::after {
+				display: none;
+			}
+
+			margin: 15px 0;
+		}
+	}
+
+	#houses {
+		padding: 50px 0;
+
+		.main-search {
+			h3 {
+				margin-bottom: 10px;
+			}
+
+			.button-group {
+				margin: 10px 0;
+				padding: 0 15px;
+
+				&.rent-buy {
+					width: 100%;
+
+					#btn-rent,
+					#btn-buy {
+						width: 50%;
+						padding: 7px 10px;
+						font-size: 15px;
+					}
+				}
+
+				&.location,
+				&.category {
+					width: 100%;
+
+					input,
+					select {
+						width: 100%;
+					}
+				}
+
+				&:first-child {
+					margin-top: 0;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+
+				&.price,
+				&.rooms {
+					width: 50%;
+
+					.btn {
+						width: 100%;
+					}
+
+					#price,
+					#rooms {
+						position: absolute;
+						left: 15px;
+						right: 15px;
+						width: auto;
+					}
+				}
+
+				&.search {
+					width: 100%;
+
+					.btn-search {
+						position: static;
+						width: 100%;
+						padding: 7px 10px;
+					}
+				}
+			}
+
+			.advanced-search-left {
+
+				.button-group {
+					width: 90%;
+
+					select,
+					button {
+						min-width: auto !important;
+						width: 100%;
+					}
+				}
+
+				&.type {
+					#type {
+						width: 100px;
+					}
+				}
+
+				#space,
+				#space-2,
+				#year,
+				#year-2 {
+					position: absolute;
+					left: 15px;
+					right: 15px;
+					width: auto !important;
+				}
+			}
+		}
+
+		#grid {
+			.item {
+				.image {
+					img {
+						height: 200px;
+					}
+				}
+			}
+		}
+
+		#list {
+			.item {
+				padding: 10px;
+				padding-bottom: 40px;
+
+				.image {
+
+					img {
+						height: 130px;
+					}
+				}
+
+				.details {
+					top: 8px;
+					right: 10px;
+
+					h4 {
+						font-size: 16px;
+					}
+
+					h6 {
+						font-size: 12px;
+						margin-bottom: 5px;
+					}
+
+					.rating {
+						svg {
+							font-size: 12px;
+						}
+					}
+
+					.name,
+					.price {
+						margin: 5px 0;
+						font-size: 13px;
+					}
+
+					.buttons {
+						bottom: 15px;
+
+						button {
+							width: 100%;
+							margin-top: 10px;
+							font-size: 12px;
+						}
+					}
+				}
+			}
+		}
+
+		.btn-property {
+			width: 70%;
+			font-size: 14px;
+		}
+	}
 
 	#back-to-top {
 		bottom: 15px;

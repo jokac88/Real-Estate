@@ -210,3 +210,38 @@ $(document).ready(function () {
 		};
 	});
 });
+
+$(document).ready(function () {
+	$(".hamburger").click(function () {
+		if ($(this).hasClass("is-active")) {
+			$(this).removeClass("is-active");
+			$(".sidenav").removeClass("active");
+			$("#close-nav").removeClass("active");
+			$("body").css("overflow", "auto");
+		} else {
+			$(this).addClass("is-active");
+			$(".sidenav").addClass("active");
+			$("#close-nav").addClass("active");
+			$("body").css("overflow", "hidden");
+		}
+	});
+	$("#close-nav").click(function () {
+		$(this).removeClass("active");
+		$(".hamburger").removeClass("is-active");
+		$(".sidenav").removeClass("active");
+		$("body").css("overflow", "auto");
+	});
+});
+
+$(document).ready(function () {
+	$(".sidenav ul li a").click(function () {
+		var href = $(this).attr('href');
+		$('html, body').animate({
+			scrollTop: $(href).offset().top
+		}, 1000);
+		$(".sidenav").removeClass("active");
+		$(".hamburger").removeClass("is-active");
+		$("#close-nav").removeClass("active");
+		document.body.style.overflowY = "auto";
+	});
+});
