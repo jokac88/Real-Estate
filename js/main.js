@@ -164,6 +164,12 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+	$("#login-mobile").click(function () {
+		$("#login-div-mobile").addClass("active");
+	});
+});
+
+$(document).ready(function () {
 	$('.grid-list').on('click', '.btn', function () {
 		$(this).addClass('active').siblings().removeClass('active');
 	});
@@ -246,7 +252,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-	$(".sidenav ul li a").click(function () {
+	$("#mobile-nav li a").click(function () {
 		var href = $(this).attr('href');
 		$('html, body').animate({
 			scrollTop: $(href).offset().top

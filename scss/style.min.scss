@@ -243,32 +243,88 @@ svg {
 			width: 80vw;
 		}
 	}
-
-	.profile {
-		display: inline-block;
-
-		&.linkedid {
-			position: absolute;
-			left: 45%;
-			transform: translate(-45%, 0);
-		}
-
-		&.github {
-			position: absolute;
-			left: 60%;
-			transform: translate(-60%, 0);
-		}
-
-		img {
-			width: 25px;
-			margin-top: 15px;
-		}
-	}
 }
 
 /*----------------------------
     mySidenav end
 ----------------------------*/
+
+#login-div-mobile {
+	position: fixed;
+	top: 50%;
+	left: 10%;
+	right: 10%;
+	transform: translate(0, -50%);
+	width: 0;
+	height: 0;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 9999;
+	background-color: $green;
+	border-radius: 3px;
+	-webkit-box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.75);
+	transition: all 1s ease;
+
+	&.active {
+		width: auto;
+		height: auto;
+		opacity: 1;
+		visibility: visible;
+	}
+
+	.wrapper {
+		margin: 20px;
+	}
+
+	p {
+		text-transform: none;
+		font-size: 14px;
+		margin-bottom: 20px;
+	}
+
+	input {
+		padding: 15px 10px 14px;
+		font-size: 13px;
+		border: none;
+	}
+
+	.input-group-text {
+		border: none;
+	}
+
+	svg {
+		width: 14px;
+	}
+
+	.btn-forgot-password {
+		background-color: transparent;
+		padding: 0;
+		margin-bottom: 20px;
+		color: $white;
+	}
+
+	.btn-forgot-password:hover {
+		text-decoration: underline;
+	}
+
+	.btn-login {
+		width: 100%;
+		padding: 8px 0 7px;
+		margin-bottom: 0;
+		background-color: $green-active;
+		color: $white;
+		text-transform: uppercase;
+		font-size: 15px;
+		transition: background $transition;
+		font-weight: bold;
+	}
+
+	.btn-login:hover {
+		background-color: #608929;
+	}
+}
 
 /*----------------------------
     Close-nav start
@@ -2131,13 +2187,16 @@ footer {
 		visibility: hidden;
 	}
 
-	#mobile-nav {
-		&.nav.nav-pills {
-			padding: 0;
+	#nav-bar {
 
-			li {
-				display: block;
-				width: 100%;
+		#mobile-nav {
+			&.nav.nav-pills {
+				padding: 0;
+
+				li {
+					display: block;
+					width: 100%;
+				}
 			}
 		}
 	}
